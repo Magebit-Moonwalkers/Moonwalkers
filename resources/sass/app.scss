@@ -5,4 +5,86 @@
 @import 'variables';
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+// @import 'bootstrap/scss/bootstrap';
+
+body {
+    margin: 0;
+    background: rgb(44, 44, 70);
+    color: #fff;
+}
+
+.content-wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-brand {
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    letter-spacing: -3px;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.top-nav {
+    width: 100%;
+    height: 76px;
+
+    .content-wrapper {
+        justify-content: space-between;
+    }
+
+    .left-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 440px;
+
+        .buttons-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: auto;
+
+            span {
+                padding: 10px;
+            }
+        }
+    }
+
+    .right-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-left: 10px;
+        
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #main-search {
+            box-sizing: border-box;
+            height: 40px;
+            width: 200px;
+            background: none;
+            border: 1px solid grey;
+            border-radius: 20px;
+            padding-left: 10%;
+            padding-right: 4%;
+            color: #fff;
+        }
+
+        .logout-btn {
+            color: rgb(255, 0, 0);
+            text-decoration: none;
+        }
+    }
+}
