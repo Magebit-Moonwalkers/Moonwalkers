@@ -33,8 +33,10 @@ class ProductController extends Controller
         return view('admin-productView', compact('id'));
     }
 
-    public function save () {
-
+    public function store (array $params) {
+        $collection = collect($params);
+        $product = new Product($collection->all());
+        $product->save();
     }
 
     public function update () {

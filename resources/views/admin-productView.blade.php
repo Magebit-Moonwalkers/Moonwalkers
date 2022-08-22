@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <form class="p-3 px-5" method="post" action="{{ route('modify-products') }}" enctype="multipart/form-data">
 @csrf
 @method('put')
@@ -12,5 +15,5 @@
     </div>
     <button type="submit" class="btn btn-info btn-round">{{__('Save')}}</button>
     @csrf
-
 </from>
+@endsection

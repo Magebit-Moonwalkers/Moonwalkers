@@ -44,3 +44,6 @@ Route::get('/add-product', function () {
 })->name('add-product');
 
 Route::get('product/{id}',[ProductController::class, 'showById'])->name('product.show');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
