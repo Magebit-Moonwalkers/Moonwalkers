@@ -16,7 +16,7 @@ body {
 
     &::after {
         content: "";
-        background: url(./../../storage/app/backgrounds/space2.jpg);
+        background: url(./../../public/images/backgrounds/space2.jpg);
         opacity: 0.5;
         top: 0;
         left: 0;
@@ -50,6 +50,10 @@ body {
     letter-spacing: -3px;
     text-decoration: none;
     color: #fff;
+}
+
+main {
+    min-height: calc(100vh - 295.266px - 76px); // footer and top nav height
 }
 
 .top-nav {
@@ -149,6 +153,9 @@ body {
             color: #000;
             font-size: medium;
         }
+        input[type=checkbox]:hover {
+            cursor: pointer;
+        }
         .col-form-label {
             margin-left: 5%;
         }
@@ -173,6 +180,13 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .btn-link {
+            color: rgb(75, 175, 235);
         }
     }
 }
@@ -211,7 +225,6 @@ body {
     width: 100%;
     padding: 30px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
-    position: fixed;
     bottom: 0;
 
     .content-wrapper {
