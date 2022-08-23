@@ -25,6 +25,8 @@
             @yield('content')
         </main>
     </div>
-    @include('layouts.footer')
+    @if(!auth()->user() || auth()->user()->role != "administrator")
+        @include('layouts.footer')
+    @endif
 </body>
 </html>
