@@ -13,20 +13,17 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
+    <!-- Scripts and Style-->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/hero.scss', 'resources/js/tracker.js'])
 </head>
 <body>
-    <div id="app">
     <!-- <img src="/space2.jpg" alt=""/> -->
-        @include('layouts.nav')
+        <!-- @include('layouts.nav') -->
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-    @if(!auth()->user() || auth()->user()->role != "administrator")
+        @yield('content')
+    <!-- @if(!auth()->user() || auth()->user()->role != "administrator")
         @include('layouts.footer')
-    @endif
+    @endif -->
 </body>
 </html>
