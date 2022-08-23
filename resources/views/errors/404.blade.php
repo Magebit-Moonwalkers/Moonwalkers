@@ -3,6 +3,7 @@
 <head>
   <title>Basic Tetris HTML Game</title>
   <meta charset="UTF-8">
+  @vite(['resources/sass/app.scss'])
   <style>
   html, body {
     height: 100%;
@@ -14,7 +15,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: black;
+  }
+
+  .top-nav {
+    position: fixed;
+    top: 0;
   }
 
   h1, h2 {
@@ -22,15 +27,21 @@
     margin: 20px 0 10p;
   }
 
+  .game-wrapper {
+    background: rgba(28, 28, 41, 0.6);
+  }
+
   canvas {
-    border: 1px solid white;
+    border: 1px solid #555;
   }
   </style>
+  
 </head>
-<body>
+<body class="404">
+    @include('layouts.nav')
     <h1>Page not found</h1>
     <h2>Error 404</h2>
-    <div class="wrapper">
+    <div class="game-wrapper">
         <canvas width="320" height="640" id="game"></canvas>
     </div>
 <script>
