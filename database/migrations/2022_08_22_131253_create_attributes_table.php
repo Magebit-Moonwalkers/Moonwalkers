@@ -19,10 +19,10 @@ return new class extends Migration
             $table->set('optics_type', ['Refractor', 'Reflector', 'Catadioptric'])->nullable();
             $table->integer('max_useful_magnification')->nullable();
             $table->integer('focal_length')->nullable();
-            $table->bigInteger('application')->unsigned()->nullable();
+            $table->unsignedBigInteger('application')->nullable();
             $table->integer('aperture')->nullable();
             $table->set('mounting_type', ['Azimuthal', 'Equatorial'])->nullable();
-            $table->bigInteger('manufacturer')->unsigned()->nullable();
+            $table->unsignedBigInteger('manufacturer')->unsigned()->nullable();
             $table->integer('max_additional_load_capacity')->nullable();
             $table->string('material')->nullable();
             $table->float('total_weight')->nullable();
@@ -30,14 +30,11 @@ return new class extends Migration
             $table->integer('apparent_field_of_view')->nullable();
             $table->float('connection')->nullable();
             $table->integer('magnification')->nullable();
-            $table->bigInteger('fits_to')->nullable();
+            $table->unsignedBigInteger('fits_to')->nullable();
             $table->string('shape')->nullable();
             $table->boolean('waterproofness')->nullable();
             $table->string('dimensions')->nullable();
             $table->string('colour')->nullable();
-            // $table->foreign('application')->references('application_id')->on('application')->nullable()->onDelete('cascade');
-            // $table->foreign('manufacturer')->references('manufacturer_id')->on('manufacturers')->nullable()->onDelete('cascade');
-            // $table->foreign('fits_to')->references('category_id')->on('categories')->nullable()->onDelete('cascade');
             $table->timestamps();
         });
     }
