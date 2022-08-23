@@ -22,7 +22,7 @@
         <nav class="top-nav">
             <div class="content-wrapper navbar">
                 <div class="left-wrapper">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="logo" href="{{ url('/') }}">
                         MoonWalkers
                     </a>
                     <div class="buttons-wrapper">
@@ -67,5 +67,6 @@
             @yield('content')
         </main>
     </div>
+    @include('layouts.footer')
 </body>
 </html>

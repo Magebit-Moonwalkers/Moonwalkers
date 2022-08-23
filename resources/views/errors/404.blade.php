@@ -19,6 +19,7 @@
 
   h1, h2 {
     color: #fff;
+    margin: 20px 0 10p;
   }
 
   canvas {
