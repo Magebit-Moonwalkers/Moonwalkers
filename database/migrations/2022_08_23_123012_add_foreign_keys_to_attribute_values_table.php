@@ -13,9 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->foreign('brand_id')->references('brand_id')->on('brands')->onDelete('cascade');
-            $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
+        Schema::table('attribute_values', function (Blueprint $table) {
             $table->foreign('attribute_id')->references('attribute_id')->on('attributes')->onDelete('cascade');
         });
     }
@@ -27,9 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign(['brand_id']);
-            $table->dropForeign(['category_id']);
+        Schema::table('attribute_values', function (Blueprint $table) {
             $table->dropForeign(['attribute_id']);
         });
     }

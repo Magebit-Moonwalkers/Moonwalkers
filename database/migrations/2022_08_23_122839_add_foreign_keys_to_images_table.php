@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('manufacturers', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->id('manufacturer_id');
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('images', function (Blueprint $table) {
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('manufacturers');
+        Schema::table('images', function (Blueprint $table) {
+            $table->dropForeign(['product_id']);
+        });
     }
 };
