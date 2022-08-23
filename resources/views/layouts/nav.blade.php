@@ -8,7 +8,10 @@
                     MoonWalkers
                 </a>
                 <div class="buttons-wrapper">
-                    <span class="nav1">nav1</span>
+                    <div class="dropdown-products">
+                        <button class="dropdown-button">Products</button>
+                    </div>
+
                     <span class="nav2">nav2</span>
                     <span class="nav3">nav3</span>
                 </div>

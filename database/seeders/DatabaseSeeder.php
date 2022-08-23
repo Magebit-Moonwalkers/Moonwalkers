@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->delete();
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
@@ -31,5 +32,7 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
+        $this->call(CategoryTableSeeder::class);
     }
 }
