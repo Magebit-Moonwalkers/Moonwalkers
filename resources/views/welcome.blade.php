@@ -6,7 +6,7 @@
     <div class="hero-text">
       <h1>Are you ready to explore the Universe?</h1>
       <p>Best tools for exploring</p>
-      <button>Take a look...</button>
+      <a href="{{ url('/products') }}">Take a look...</a>
     </div>
   </div>
 

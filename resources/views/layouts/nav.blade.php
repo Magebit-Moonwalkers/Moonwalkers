@@ -10,6 +10,13 @@
                 <div class="buttons-wrapper">
                     <div class="dropdown-products">
                         <a class="dropdown-button" href="{{ url('/products') }}">Products</a>
+                        <div class="dropdown-products-content">
+                            @foreach($categories as $category)
+
+                                <a>{{ $category->name }}</a>
+
+                            @endforeach
+                        </div>
                     </div>
 
                     <span class="nav2">nav2</span>

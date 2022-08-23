@@ -16,7 +16,6 @@
     <!-- Scripts and Style-->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @vite(['resources/sass/hero.scss', 'resources/js/tracker.js'])
-    
 </head>
 <body>
     <!-- <img src="/space2.jpg" alt=""/> -->

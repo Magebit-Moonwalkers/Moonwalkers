@@ -11,6 +11,13 @@ class CategoryController extends Controller
     {
         $categories = DB::table('categories')->get();
  
-        return $categories;
+        return ['categories' => $categories];
+    }
+
+    public function show()
+    {
+        $categories = DB::table('categories')->get();
+
+        return view('products', ['categories' => $categories]);
     }
 }

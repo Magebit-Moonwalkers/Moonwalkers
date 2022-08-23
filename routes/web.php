@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $categories = DB::table('categories')->get();
+    return view('welcome', ['categories' => $categories]);
 });
 Auth::routes();
 
@@ -30,9 +31,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/products', function () {
-    return view('products');
-});
+Route::get('/products', [CategoryController::class, 'show']);
 
 Route::get('/contact-us', function () {
     return view('contact-us');
