@@ -2,10 +2,12 @@
 
 @section('content')
 <div class="hero-image">
-  <div class="hero-text">
-    <h1>Are you ready to explore the Universe?</h1>
-    <p>Best tools for exploring</p>
-    <button>Explore</button>
+  <div class="hero-text-container">
+    <div class="hero-text">
+      <h1>Are you ready to explore the Universe?</h1>
+      <p>Best tools for exploring</p>
+      <button>Take a look...</button>
+    </div>
   </div>
 
   <div class="tracker">
