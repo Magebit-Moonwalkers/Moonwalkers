@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class BrandController extends Controller
 {
+    public function __construct() 
+    {
+        $this->middleware('auth');
+    }
      /**
      * Show a list of all of the application's users.
      *
