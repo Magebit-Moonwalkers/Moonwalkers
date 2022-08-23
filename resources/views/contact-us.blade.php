@@ -3,7 +3,6 @@
 @section('content')
 <div class="content-wrapper contact">
     <h2>Contact us</h2>
-    <div class="working-hours">Working hours</div>
     <form>
         <div class="user-details">
             <input type="text" id="name" name="name" placeholder="Name">
