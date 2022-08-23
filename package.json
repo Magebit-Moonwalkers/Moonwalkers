@@ -1,4 +1,4 @@
-npnp{
+{
     "private": true,
     "scripts": {
         "dev": "vite",
