@@ -3,6 +3,22 @@ body {
   margin: 0;
   background: rgb(44, 44, 70);
   color: #fff;
+  display: block;
+  position: relative;
+}
+body::after {
+  content: "";
+  background: url(./../../storage/app/backgrounds/space2.jpg);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 .content-wrapper {
@@ -12,6 +28,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+.content-wrapper.navbar {
+  flex-direction: row;
 }
 
 .navbar-brand {
@@ -25,6 +45,7 @@ body {
 }
 
 .top-nav {
+  background: rgba(28, 28, 41, 0.7);
   width: 100%;
   height: 76px;
 }
@@ -57,18 +78,106 @@ body {
   color: #fff;
   text-decoration: none;
 }
+.top-nav .right-wrapper .cart-btn {
+  border: 1px solid #fff;
+  border-radius: 1em;
+  padding: 5px;
+}
 .top-nav .right-wrapper #main-search {
   box-sizing: border-box;
   height: 40px;
   width: 200px;
   background: none;
-  border: 1px solid grey;
+  border: 1px solid #fff;
   border-radius: 20px;
   padding-left: 10%;
   padding-right: 4%;
   color: #fff;
+  font-size: small;
 }
 .top-nav .right-wrapper .logout-btn {
   color: rgb(255, 0, 0);
   text-decoration: none;
+}
+
+.login-card, .reg-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin-top: 250px;
+}
+.login-card .card-header, .reg-card .card-header {
+  font-size: xx-large;
+  font-weight: 600;
+}
+.login-card .card-body, .reg-card .card-body {
+  width: 100%;
+}
+.login-card .card-body form, .reg-card .card-body form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.login-card .card-body input:not([type=checkbox]), .reg-card .card-body input:not([type=checkbox]) {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  border: none;
+  border-radius: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  color: #000;
+  font-size: medium;
+}
+.login-card .card-body .col-form-label, .reg-card .card-body .col-form-label {
+  margin-left: 5%;
+}
+.login-card .card-body .register-btn-wrap, .reg-card .card-body .register-btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+.login-card .card-body .login-bottom-wrap, .reg-card .card-body .login-bottom-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-card .card-body .btn-primary, .reg-card .card-body .btn-primary {
+  box-sizing: border-box;
+  width: 100px;
+  height: 40px;
+  background: #000;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about {
+  margin-top: 64px;
+}
+.about .images {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.about .images img {
+  width: 350px;
+  height: 330px;
+}
+
+.contact form {
+  width: 513px;
+}
+.contact form .user-details {
+  display: flex;
+  justify-content: space-between;
+}
+.contact form input {
+  width: 100%;
 }/*# sourceMappingURL=app.css.map */

@@ -18,8 +18,9 @@
 </head>
 <body>
     <div id="app">
+    <!-- <img src="/space2.jpg" alt=""/> -->
         <nav class="top-nav">
-            <div class="content-wrapper">
+            <div class="content-wrapper navbar">
                 <div class="left-wrapper">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         MoonWalkers
