@@ -2,9 +2,7 @@
 
 @section('content')
 <?php     
-print_r ($brands);
 $fields=["name", "SKU", "price", "description"];
-// $fields=[["as", "asdds"],["asd", "as", "asdds"],["fds"]];
 ?>
 <form class="p-3 px-5" method="post" action="{{ route('modify-products') }}" enctype="multipart/form-data">
 @csrf
@@ -65,6 +63,7 @@ $fields=["name", "SKU", "price", "description"];
         <input type="file" id="image" name="image" class="form-control">
     </div>
 
+    <div class="attributes" id="attributes">
     <?php $attributes = ["a", "d", "r", "p"]; ?> 
     @foreach ($attributes as $attribute) 
         <div class="form-group">
@@ -72,6 +71,7 @@ $fields=["name", "SKU", "price", "description"];
             <input type="text" id="description" name="description" class="form-control">
         </div>
     @endforeach
+    </div>
 
     <button type="submit" class="btn btn-info btn-round">{{__('Add')}}</button>
 @csrf

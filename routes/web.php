@@ -41,6 +41,10 @@ Route::post('/products', function () {
     return view('admin-products', compact('products'));
 })->name('modify-products');
 
+// Route::post('/products', function () {
+//     return view('admin-products', [ProductController::class, 'store']);
+// })->name('modify-products');
+
 Route::get('/add-product', [BrandController::class, 'index'])->name('add-product');
 
 Route::get('product/{id}',[ProductController::class, 'showById'])->name('product.show');

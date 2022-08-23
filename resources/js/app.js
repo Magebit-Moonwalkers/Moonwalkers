@@ -38,6 +38,40 @@ app.component('example-component', ExampleComponent);
 
 app.mount('#app');
 
-document.getElementById('product-type-select').addEventListener("change", function(){
-    
+let $attributes = {
+    "telescopes": ["asd", "dsa"],
+    "mounting": ["a","b"],
+    "eyepieces": ["p","s"],
+    "lenses": ["o"],
+    "bags": ["q","w","e"],
+    "filters": ["kl"]
+};
+
+document.getElementById('product-type-select').addEventListener("change", function (event) {
+    console.log(event.target.value);
+    console.log($attributes[event.target.value]);
+    let parent = document.getElementById('attributes');
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+
+    let formGroup = document.createElement("div");
+    formGroup.classList.add("form-group");
+
+    parent.appendChild(formGroup);
+
+    $attributes[event.target.value].forEach(element => {
+        console.log(element);
+        let label = document.createElement("label");
+        label.setAttribute("for", element);
+        label.textContent = element;
+
+        let input = document.createElement("input");
+        input.setAttribute("id", element);
+        input.setAttribute("name", element);
+        input.classList.add("form-control");
+
+        formGroup.appendChild(label);
+        formGroup.appendChild(input);
+    });
 }) 
