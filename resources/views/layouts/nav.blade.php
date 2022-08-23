@@ -4,7 +4,7 @@
     <nav class="top-nav">
         <div class="content-wrapper navbar">
             <div class="left-wrapper">
-                <a class="logo" href="{{ url('/home') }}">
+                <a class="logo" href="{{ url('/') }}">
                     MoonWalkers
                 </a>
                 <div class="buttons-wrapper">
