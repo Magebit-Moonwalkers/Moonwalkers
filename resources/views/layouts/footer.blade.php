@@ -10,10 +10,10 @@
             <div class="info">
                 <h4>Info</h4>
                 <a href="/about" class="grey-text">About</a>
-                <a href="/contact" class="grey-text">Contact us</a>
+                <a href="/contact-us" class="grey-text">Contact us</a>
                 <a href="/shipping-policy" class="grey-text">Shipping policy</a>
             </div>
-            <div class="logo">MoonWalkers</div>
+            <a class="logo" href="{{ url('/home') }}">MoonWalkers</a>
 
         </div>
         <div class="contact-part">
