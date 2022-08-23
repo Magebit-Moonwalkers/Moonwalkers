@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 
 /*
@@ -47,15 +49,19 @@ Route::post('/products', function () {
     return view('admin-products', compact('products'));
 })->name('modify-products');
 
-Route::get('/add-product', function () {
-    return view('admin-addProductForm');
-})->name('add-product');
+Route::get('/add-product', [BrandController::class, 'index'])->name('add-product');
 
 Route::get('product/{id}',[ProductController::class, 'showById'])->name('product.show');
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/add-product', function () {
+    $brandsContr = new BrandController();
+    $brands = $brandsContr->index();
 
+    $categoriesContr = new CategoryController();
+    $categories = $categoriesContr->index();
+
+    return view('admin-addProductForm')->with(compact('brands'))->with(compact('categories'));
+})->name('add-product');
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');

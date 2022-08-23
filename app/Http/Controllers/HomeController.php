@@ -17,6 +17,10 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    public function isAdmin() {
+        return Auth::user()->role === 'administrator';
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -24,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role === 'Administrator') {
+        if ($this->isAdmin()) {
             return view('admin');
         }
         else {
