@@ -9,7 +9,7 @@
                 </a>
                 <div class="buttons-wrapper">
                     <div class="dropdown-products">
-                        <button class="dropdown-button">Products</button>
+                        <a class="dropdown-button" href="{{ url('/products') }}">Products</a>
                     </div>
 
                     <span class="nav2">nav2</span>

@@ -17,11 +17,6 @@
     justify-content: center;
   }
 
-  .top-nav {
-    position: fixed;
-    top: 0;
-  }
-
   h1, h2 {
     color: #fff;
     margin: 20px 0 10p;
