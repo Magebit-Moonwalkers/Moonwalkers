@@ -8,13 +8,13 @@ body {
 }
 body::after {
   content: "";
-  background: url(./../../storage/app/backgrounds/space2.jpg);
+  background: url(./../../public/images/backgrounds/space2.jpg);
   opacity: 0.5;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  position: absolute;
+  position: fixed;
   z-index: -1;
   height: 100vh;
   background-size: cover;
@@ -34,18 +34,21 @@ body::after {
   flex-direction: row;
 }
 
-.navbar-brand {
+.logo {
   font-size: 40px;
   font-family: "Courier New", Courier, monospace;
   font-weight: 900;
   letter-spacing: -3px;
-  padding: 10px;
   text-decoration: none;
   color: #fff;
 }
 
+main {
+  min-height: calc(100vh - 300px - 76px);
+}
+
 .top-nav {
-  background: rgba(28, 28, 41, 0.7);
+  background: rgba(28, 28, 41, 0.6);
   width: 100%;
   height: 76px;
 }
@@ -105,7 +108,7 @@ body::after {
   flex-direction: column;
   align-items: center;
   width: 300px;
-  margin-top: 250px;
+  margin-top: 150px;
 }
 .login-card .card-header, .reg-card .card-header {
   font-size: xx-large;
@@ -130,6 +133,9 @@ body::after {
   padding-right: 10%;
   color: #000;
   font-size: medium;
+}
+.login-card .card-body input[type=checkbox]:hover, .reg-card .card-body input[type=checkbox]:hover {
+  cursor: pointer;
 }
 .login-card .card-body .col-form-label, .reg-card .card-body .col-form-label {
   margin-left: 5%;
@@ -156,9 +162,15 @@ body::after {
   justify-content: center;
   align-items: center;
 }
+.login-card .card-body .btn-primary:hover, .reg-card .card-body .btn-primary:hover {
+  cursor: pointer;
+}
+.login-card .card-body .btn-link, .reg-card .card-body .btn-link {
+  color: rgb(75, 175, 235);
+}
 
 .about {
-  margin-top: 64px;
+  padding: 64px 0;
 }
 .about .images {
   width: 100%;
@@ -171,6 +183,9 @@ body::after {
   height: 330px;
 }
 
+.contact {
+  padding: 64px 0;
+}
 .contact form {
   width: 513px;
 }
@@ -180,4 +195,104 @@ body::after {
 }
 .contact form input {
   width: 100%;
+}
+
+.footer-block {
+  width: 100%;
+  padding: 30px 0;
+  bottom: 0;
+  background: rgba(28, 28, 41, 0.6);
+}
+.footer-block .content-wrapper {
+  gap: 50px;
+}
+.footer-block .content-wrapper > * {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.footer-block .quick-links, .footer-block .info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-block .quick-links a, .footer-block .info a {
+  color: rgb(75, 175, 235);
+  text-decoration: none;
+}
+.footer-block .quick-links h4, .footer-block .info h4 {
+  margin-top: 0;
+}
+.footer-block .subscribe-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.footer-block .subscribe-form-wrapper label {
+  margin-left: 5%;
+}
+.footer-block .subscribe-form-wrapper form {
+  box-sizing: border-box;
+  width: 300px;
+  height: 40px;
+  background: #fff;
+  border: none;
+  border-radius: 20px;
+  color: #000;
+  font-size: medium;
+  padding: 0;
+  display: flex;
+}
+.footer-block .subscribe-form-wrapper form input {
+  box-sizing: border-box;
+  width: 80%;
+  height: 40px;
+  border-radius: 20px;
+  background: none;
+  border: none;
+  padding-left: 10%;
+  padding-right: 10%;
+  color: #000;
+  font-size: medium;
+}
+.footer-block .subscribe-form-wrapper form input:focus {
+  outline: none;
+}
+.footer-block .subscribe-form-wrapper form button {
+  box-sizing: border-box;
+  width: 20%;
+  height: 40px;
+  border-radius: 20px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-block .subscribe-form-wrapper form button:hover {
+  cursor: pointer;
+}
+.footer-block .social-media-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.footer-block .social-media-icon-wrapper > * {
+  margin: 0;
+}
+
+.tracker {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  z-index: 9999;
+  pointer-events: none;
+  transition: all 0.4ms;
+}
+.tracker div {
+  width: 60px;
+  height: 60px;
+  background-image: url(./../../public/images/icons/cursor.png);
+  background-size: cover;
 }/*# sourceMappingURL=app.css.map */

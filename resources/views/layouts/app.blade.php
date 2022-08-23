@@ -17,8 +17,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+    <div class="tracker"><div class="img"></div></div>
     <div id="app">
-    <!-- <img src="/space2.jpg" alt=""/> -->
         @include('layouts.nav')
 
         <main class="py-4">

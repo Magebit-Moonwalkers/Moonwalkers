@@ -313,3 +313,18 @@ main {
         }
     }
 }
+
+.tracker {
+    position: fixed;
+    transform: translate(-50%,-50%);
+    width: 40px;
+    z-index:9999;
+    pointer-events: none;
+    transition: all .40ms;
+    div {
+        width: 60px;
+        height: 60px;
+        background-image: url(./../../public/images/icons/cursor.png);
+        background-size: cover;
+    }
+}

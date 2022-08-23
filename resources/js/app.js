@@ -37,3 +37,12 @@ app.component('example-component', ExampleComponent);
  */
 
 app.mount('#app');
+
+
+const tracker = document.querySelector(".tracker");
+document.body
+    .addEventListener("mousemove", e => {
+
+        tracker.style.left = `${e.clientX}px`;
+        tracker.style.top = `${e.clientY}px`;
+    })
