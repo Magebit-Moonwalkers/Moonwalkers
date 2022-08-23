@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('product_attributes', function (Blueprint $table) {
-            $table->id();
+            $table->id('product_attribute_id');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('attribute_id');
             $table->timestamps();

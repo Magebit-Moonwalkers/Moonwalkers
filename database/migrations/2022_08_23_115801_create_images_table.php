@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->id();
+            $table->id('image_id');
             $table->string('src');
             $table->unsignedBigInteger('product_id');
             $table->timestamps();

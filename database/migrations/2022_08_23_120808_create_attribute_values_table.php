@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('attribute_values', function (Blueprint $table) {
-            $table->id();
+            $table->id('attribute_value_id');
             $table->string('value');
             $table->unsignedBigInteger('attribute_id');
             $table->timestamps();

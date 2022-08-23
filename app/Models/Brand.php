@@ -5,27 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class Brand extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'images';
+    protected $table = 'brands';
 
     /**
      * @var array
      */
     protected $fillable = [
-        'image_id', 'src', 'product_id',
+        'brand_id', 'name',
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function product()
+    public function products()
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasMany(Product::class);
     }
 }
