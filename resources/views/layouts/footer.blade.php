@@ -22,7 +22,7 @@
                 <form action="" method="post" class="subscribe">
                     <input id="user-email-input" type="email" name="user_email" placeholder="Email">
                     <button type="submit">
-                        <img src="images/arrow_right.svg" alt="send">
+                        <img src="images/icons/arrow_right.svg" alt="send">
                     </button>
                 </form>
             </div>
