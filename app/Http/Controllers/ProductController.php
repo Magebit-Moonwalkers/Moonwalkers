@@ -93,4 +93,8 @@ class ProductController extends Controller
         $lastProduct = DB::table('products')->latest('product_id')->first();
         return $lastProduct ? $lastProduct->product_id : 0;
     }
+
+    public function showAllProductsInCategory($category) {
+        return view('products-in-category');
+    }
 }

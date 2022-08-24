@@ -7,7 +7,7 @@
         @foreach($categories as $category)
             <div class="border-animation">
                 <div class="border-animation-after">
-                    <a class="box" href="#">
+                    <a class="box" href="{{ route('products.in.category', ['category' => $category->name]) }}">
                         <img src="{{ $category->image_src }}" />
                         <div class="title">
                             <h4>{{ $category->name }}</h4>
