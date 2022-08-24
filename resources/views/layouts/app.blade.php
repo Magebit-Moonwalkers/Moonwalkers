@@ -15,7 +15,6 @@
 
     <!-- Scripts and Style-->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    @vite(['resources/sass/hero.scss', 'resources/js/tracker.js'])
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>

@@ -1,7 +1,7 @@
 @vite(['resources/sass/footer.scss'])
 
 <footer class="footer-block">
-    <div class="content-wrapper">
+    <div class="content-wrapper footer">
         <div class="upper-part">
             <div class="quick-links">
                 <h4>Quick links</h4>

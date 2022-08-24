@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content-wrapper">
-    <div class="row justify-content-center">
+
+@vite(['resources/sass/home.scss'])
+
+<div class="content">
+    <div class="content-wrapper home">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>

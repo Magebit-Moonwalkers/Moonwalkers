@@ -1,13 +1,8 @@
-.page-container {
-    position: absolute;
-    width: 80%;
-    top: 70px;
-    left: 50%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+.content-wrapper.categories {
+    padding: 64px 0;
 }
 
-.categories {
+.categories-wrapper {
     display: flex;
     gap:20px;
     flex-wrap: wrap;

@@ -26,32 +26,41 @@
             </div>
             <div class="right-wrapper">
                 @guest
-                    @if (Route::has('login'))
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    @endif
+                    <div class="guest-view">
+                        @if (Route::has('login'))
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        @endif
 
-                    @if (Route::has('register'))
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    @endif
+                        @if (Route::has('register'))
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        @endif
+                    </div>
                 @else
-                    <input type="search" name="main-search" id="main-search" placeholder="Search here...">
-                    @if(!auth()->user() || auth()->user()->role != "administrator")
-                        <a href="/cart" class="cart-btn">Cart</a>
-                    @endif
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
+                    <div class="logged-view">
+                        <div class="search-and-cart">
+                            <input type="search" name="main-search" id="main-search" placeholder="Search here...">
+                            @if(!auth()->user() || auth()->user()->role != "administrator")
+                                <a href="/cart" class="cart-btn">Cart</a>
+                            @endif
+                        </div>
 
-                    <div class="logout-wrapper">
-                        <a class="logout-btn" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                        <div class="user-and-logout">
+                            <a id="navbarDropdown" class="user-name-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                            <div class="logout-wrapper">
+                                <a class="logout-btn" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 @endguest
             </div>
