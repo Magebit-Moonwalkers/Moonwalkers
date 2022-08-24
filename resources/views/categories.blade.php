@@ -2,17 +2,18 @@
 @vite(['resources/sass/categories.scss'])
 
 @section('content')
-<div class="content">
-    <div class="content-wrapper categories">
-        <div class="categories-wrapper">
+<div class="page-container">
+    <div class="categories">
             @foreach($categories as $category)
 
-                <div class="box">
-                <h4>{{ $category->name }}</h4>
+            <a class="box" href="#">
+                <img src="{{ $category->image_src }}" />
+                <div class="title">
+                    <h4>{{ $category->name }}</h4>
                 </div>
-            
-            @endforeach
-        </div>
+            </a>
+        
+        @endforeach
     </div>
 </div>
 @endsection

@@ -1,17 +1,50 @@
-.content-wrapper.categories {
-    padding: 64px 0;
+.page-container {
+    position: relative;
+    width: 1500px;
+    margin: auto;
+    height: 90vh;
+    top: 70px;
 }
 
-.categories-wrapper {
-    display: flex;
-    gap:20px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+.categories {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
 }
 
 .box {
+    position: relative;
     width: 25vw;
     height: 30vh;
     background-color: white;
+    text-decoration: none;
+    border-radius: 5px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .title {
+        height: 15%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-color: rgb(172, 172, 172);
+        display: flex;
+        align-items: center;
+    }
+
+    h4 {
+        color: white;
+        font-size: 25px;
+        margin: 0 10px;
+    }
 }
