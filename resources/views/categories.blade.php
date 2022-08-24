@@ -6,9 +6,12 @@
     <div class="categories">
         @foreach($categories as $category)
 
-            <div class="box">
-            <h4>{{ $category->name }}</h4>
-            </div>
+            <a class="box" href="#">
+                <img src="{{ $category->image_src }}" />
+                <div class="">
+                    <h4>{{ $category->name }}</h4>
+                </div>
+            </a>
         
         @endforeach
     </div>

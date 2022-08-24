@@ -1,22 +1,40 @@
 .page-container {
-    position: absolute;
-    width: 80%;
+    position: relative;
+    width: 1500px;
+    margin: auto;
+    height: 90vh;
     top: 70px;
-    left: 50%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
 }
 
 .categories {
-    display: flex;
-    gap:20px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
+
 }
 
 .box {
+    position: relative;
     width: 25vw;
     height: 30vh;
     background-color: white;
+    text-decoration: none;
+    border-radius: 5px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    h4 {
+        color: black;
+        text-align: center;
+        font-size: 30px;
+    }
 }

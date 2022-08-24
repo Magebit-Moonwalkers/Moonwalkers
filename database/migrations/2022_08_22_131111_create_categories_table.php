@@ -17,6 +17,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->id('category_id');
             $table->string('name');
+            $table->string('image_src');
             $table->timestamps();
         });
     }
