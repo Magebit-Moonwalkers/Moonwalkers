@@ -1,0 +1,14 @@
+.about {
+    padding: 64px 0;
+    .images {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+
+        img {
+            width: 350px;
+            height: 330px;
+        }
+    }
+}

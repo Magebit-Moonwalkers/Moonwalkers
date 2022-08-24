@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+@vite(['resources/sass/hero.scss', 'resources/js/tracker.js'])
+
 <div class="hero-image">
   <div class="hero-text-container">
     <div class="hero-text">

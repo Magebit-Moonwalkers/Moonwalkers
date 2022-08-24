@@ -7,18 +7,12 @@
     z-index: 200;
 }
 
-.content-wrapper {
-    margin: auto;
-    width: 80%;
-    min-width: 1200px;
-    height: 100%;
+.content-wrapper.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: column;
-    &.navbar {
-        flex-direction: row;
-    }
+    flex-direction: row;
+    gap: 40px;
 }
 
 .logo {
@@ -41,16 +35,15 @@ main {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 440px;
+        gap: 50px;
 
         .buttons-wrapper {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: auto;
-            gap: 10px;
 
-            span {
+            div {
                 padding: 10px;
             }
         }
@@ -60,12 +53,14 @@ main {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
-        padding-left: 10px;
         
         .nav-link {
+            padding: 10px;
             color: #fff;
             text-decoration: none;
+            &:nth-last-of-type(1) {
+                padding-right: 0;
+            }
         }
 
         .cart-btn {
