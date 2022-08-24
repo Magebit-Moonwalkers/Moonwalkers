@@ -2,9 +2,7 @@
 
 @section('content')
 <?php     
-print_r ($brands);
 $fields=["name", "SKU", "price", "description"];
-// $fields=[["as", "asdds"],["asd", "as", "asdds"],["fds"]];
 ?>
 <form class="p-3 px-5" method="post" action="{{ route('modify-products') }}" enctype="multipart/form-data">
 @csrf
@@ -15,7 +13,8 @@ $fields=["name", "SKU", "price", "description"];
     <div class="form-group">
         <label for="product-type-select">Product type</label>
         <select  class="form-select" id="product-type-select" name="product-type-select">
-            <option value="telescops">Telescops</option>
+            <option value="">Choose product type...</option>
+            <option value="telescopes">Telescopes</option>
             <option value="mounting">Mounting</option>
             <option value="eyepieces">Eyepieces</option>
             <option value="lenses">Barlow lenses</option>
@@ -65,13 +64,8 @@ $fields=["name", "SKU", "price", "description"];
         <input type="file" id="image" name="image" class="form-control">
     </div>
 
-    <?php $attributes = ["a", "d", "r", "p"]; ?> 
-    @foreach ($attributes as $attribute) 
-        <div class="form-group">
-            <label for={{$attribute}}>{{$attribute}}</label>
-            <input type="text" id="description" name="description" class="form-control">
-        </div>
-    @endforeach
+    <div class="attributes" id="attributes">
+    </div>
 
     <button type="submit" class="btn btn-info btn-round">{{__('Add')}}</button>
 @csrf

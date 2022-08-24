@@ -14,7 +14,14 @@
                         </div>
                     @endif
 
-                    AAAS {{ __('You are logged in!') }}
+                    Hello, {{auth()->user()->name}}
+                </div>
+            </div>
+            <div class="functionalities">
+                <div class="functionality">
+                    <a href="{{ route('modify-products') }}" class="modify-products">
+                        Modify products
+                    </a>
                 </div>
             </div>
         </div>
