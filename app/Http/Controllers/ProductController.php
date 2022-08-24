@@ -99,6 +99,6 @@ class ProductController extends Controller
 
         $products = DB::table('products')->where('category_id', $category_id)->get();
 
-        return view('products-in-category', ['products' => $products]);
+        return view('products-in-category', ['products' => $products, 'category' => $category]);
     }
 }
