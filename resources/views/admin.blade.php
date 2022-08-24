@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <br><br><br>
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -14,7 +15,14 @@
                         </div>
                     @endif
 
-                    AAAS {{ __('You are logged in!') }}
+                    Hello, {{auth()->user()->name}}
+                </div>
+            </div>
+            <div class="functionalities">
+                <div class="functionality">
+                    <a href="{{ route('modify-products') }}" class="modify-products">
+                        Modify products
+                    </a>
                 </div>
             </div>
         </div>
