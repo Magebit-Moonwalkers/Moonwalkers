@@ -56,7 +56,7 @@ let attributes = {
         { "textContent": "Aperture (mm)", "type": "number", "name": "aperture" },
         { "textContent": "Mounting type", "type": "text", "name": "mounting_type" },
         { "textContent": "Manufaturer", "type": "text", "name": "manufaturer" }],
-    "mounting": [
+    "mountings": [
         { "textContent": "Max additional load capacity (kg)", "type": "number", "name": "max_additional_load_capacity" },
         { "textContent": "Material tripod", "type": "text", "name": "material_tripod" },
         { "textContent": "Mounting type", "type": "text", "name": "mounting_type" },
@@ -68,7 +68,7 @@ let attributes = {
         { "textContent": "Apparent field of view", "type": "text", "name": "apparent_field_of_view" },
         { "textContent": "Connection", "type": "text", "name": "connection" },
         { "textContent": "Manufaturer", "type": "text", "name": "manufaturer" }],
-    "lenses": [
+    "barlowlenses": [
         { "textContent": "Magnification", "type": "text", "name": "magnification" },
         { "textContent": "Connection (to the telescope)", "type": "text", "name": "connection" }],
     "bags": [
@@ -83,7 +83,7 @@ let attributes = {
     ]
 };
 
-document.getElementById('product-type-select').addEventListener("change", function (event) {
+document.getElementById('product-category-select').addEventListener("change", function (event) {
     console.log(event.target.value);
 
     let parent = document.getElementById('attributes');
