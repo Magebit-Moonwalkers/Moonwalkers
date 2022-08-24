@@ -8,7 +8,7 @@
 
             <a class="box" href="#">
                 <img src="{{ $category->image_src }}" />
-                <div class="">
+                <div class="title">
                     <h4>{{ $category->name }}</h4>
                 </div>
             </a>
