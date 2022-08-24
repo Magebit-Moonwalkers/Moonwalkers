@@ -11,11 +11,13 @@
                     <div class="dropdown-products">
                         <a class="dropdown-button" href="{{ url('/products') }}">Products</a>
                         <div class="dropdown-products-content">
-                            @foreach($categories as $category)
+                            @if(Route::has('categories'))
+                                @foreach($categories as $category)
 
-                                <a>{{ $category->name }}</a>
+                                    <a>{{ $category->name }}</a>
 
-                            @endforeach
+                                @endforeach
+                            @endif
                         </div>
                     </div>
 
