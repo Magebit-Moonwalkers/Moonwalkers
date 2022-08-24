@@ -11,12 +11,12 @@
                     <div class="dropdown-products">
                         <a class="dropdown-button" href="{{ url('/products') }}">Products</a>
                         <div class="dropdown-products-content">
-                            <a>Telescopes</a>
-                            <a>Mountings</a>
-                            <a>Eyepieces</a>
-                            <a>Barlow lenses</a>
-                            <a>Bags</a>
-                            <a>Filters</a>    
+                            <a href="{{ route('products.in.category', ['category' => 'Telescopes']) }}">Telescopes</a>
+                            <a href="{{ route('products.in.category', ['category' => 'Mountings']) }}">Mountings</a>
+                            <a href="{{ route('products.in.category', ['category' => 'Eyepieces']) }}">Eyepieces</a>
+                            <a href="{{ route('products.in.category', ['category' => 'Barlow lenses']) }}">Barlow lenses</a>
+                            <a href="{{ route('products.in.category', ['category' => 'Bags']) }}">Bags</a>
+                            <a href="{{ route('products.in.category', ['category' => 'Filters']) }}">Filters</a>    
                         </div>
                     </div>
 
