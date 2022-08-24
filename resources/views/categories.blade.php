@@ -2,6 +2,7 @@
 @vite(['resources/sass/categories.scss'])
 
 @section('content')
+<div class="page-container">
     <div class="categories">
         @foreach($categories as $category)
 
@@ -11,4 +12,5 @@
         
         @endforeach
     </div>
+</div>
 @endsection

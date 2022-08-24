@@ -1,8 +1,18 @@
+.page-container {
+    position: absolute;
+    width: 80%;
+    top: 70px;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
 .categories {
     display: flex;
     gap:20px;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
 }
 
 .box {
