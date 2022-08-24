@@ -17,7 +17,18 @@ body {
 
 }
 
+.page-container {
+    position: absolute;
+    width: 80%;
+    top: 70px;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
 // .content-wrapper {
+//     position: absolute;
+//     z-index: 200;
 //     margin: 0 auto;
 //     max-width: 1200px;
 //     height: 100%;

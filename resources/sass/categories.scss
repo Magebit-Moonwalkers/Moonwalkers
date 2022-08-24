@@ -1,0 +1,12 @@
+.categories {
+    display: flex;
+    gap:20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.box {
+    width: 25vw;
+    height: 30vh;
+    background-color: white;
+}

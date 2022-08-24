@@ -20,8 +20,9 @@
 <body>
     <!-- <img src="/space2.jpg" alt=""/> -->
         @include('layouts.nav')
-
-        @yield('content')
+        <div class="page-container">
+            @yield('content')
+        </div>
     <!-- @if(!auth()->user() || auth()->user()->role != "administrator")
         @include('layouts.footer')
     @endif -->

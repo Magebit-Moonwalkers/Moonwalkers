@@ -18,6 +18,6 @@ class CategoryController extends Controller
     {
         $categories = DB::table('categories')->get();
 
-        return view('products', ['categories' => $categories]);
+        return view('categories', ['categories' => $categories]);
     }
 }
