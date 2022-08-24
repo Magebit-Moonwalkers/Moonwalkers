@@ -4,15 +4,17 @@
 @section('content')
 <div class="page-container">
     <div class="categories">
-            @foreach($categories as $category)
-
-            <a class="box" href="#">
-                <img src="{{ $category->image_src }}" />
-                <div class="title">
-                    <h4>{{ $category->name }}</h4>
+        @foreach($categories as $category)
+            <div class="border-animation">
+                <div class="border-animation-after">
+                    <a class="box" href="#">
+                        <img src="{{ $category->image_src }}" />
+                        <div class="title">
+                            <h4>{{ $category->name }}</h4>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        
+            </div>
         @endforeach
     </div>
 </div>
