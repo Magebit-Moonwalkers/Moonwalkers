@@ -8,8 +8,9 @@
 
                 <a href="{{route('add-product')}}" style="color:red;">Add product</a>
                 <div class="products">
+
                 @foreach($products as $product)
-                    <div><a href="{{ route('product.show', $product->id) }}">
+                    <div><a href="{{ route('admin.product.show', $product->product_id) }}">
                         <?php echo $product->name; ?>
                     </a></div>
                 @endforeach

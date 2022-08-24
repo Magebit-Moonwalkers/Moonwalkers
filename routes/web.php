@@ -62,7 +62,10 @@ Route::get('/admin/add-product', function () {
     $categories = $categoriesContr->index();
 
     return view('admin-addProductForm')->with(compact('brands'))->with(compact('categories'));
-})->name('add-product')->middleware('admin');;
+})->name('add-product')->middleware('admin');
+
+Route::post('/admin/add-product',[ProductController::class, 'store'])->name('admin.store');
+
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');

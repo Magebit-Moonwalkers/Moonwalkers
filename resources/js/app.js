@@ -39,7 +39,7 @@ app.component('example-component', ExampleComponent);
 app.mount('#app');
 
 let attributes = {
-    "telescopes": [
+    "1": [
         { "textContent": "Max useful magnification", "type": "text", "name": "magnification" },
         { "textContent": "Focal length (mm)", "type": "number", "name": "focal_length" },
         {
@@ -56,34 +56,34 @@ let attributes = {
         { "textContent": "Aperture (mm)", "type": "number", "name": "aperture" },
         { "textContent": "Mounting type", "type": "text", "name": "mounting_type" },
         { "textContent": "Manufaturer", "type": "text", "name": "manufaturer" }],
-    "mountings": [
+    "2": [
         { "textContent": "Max additional load capacity (kg)", "type": "number", "name": "max_additional_load_capacity" },
         { "textContent": "Material tripod", "type": "text", "name": "material_tripod" },
         { "textContent": "Mounting type", "type": "text", "name": "mounting_type" },
         { "textContent": "Total weight (kg)", "type": "number", "name": "total_weight" },
         { "textContent": "Max height (cm)", "type": "number", "name": "max_height" },
         { "textContent": "Manufaturer", "type": "text", "name": "manufaturer" }],
-    "eyepieces": [
+    "3": [
         { "textContent": "Focal length (mm)", "type": "number", "name": "focal_length" },
         { "textContent": "Apparent field of view", "type": "text", "name": "apparent_field_of_view" },
         { "textContent": "Connection", "type": "text", "name": "connection" },
         { "textContent": "Manufaturer", "type": "text", "name": "manufaturer" }],
-    "barlowlenses": [
+    "4": [
         { "textContent": "Magnification", "type": "text", "name": "magnification" },
         { "textContent": "Connection (to the telescope)", "type": "text", "name": "connection" }],
-    "bags": [
+    "5": [
         { "textContent": "Fits to", "type": "text", "name": "fits_to" },
         { "textContent": "Shape", "type": "text", "name": "shape" },
         { "textContent": "Dimensions(L x W x H), (mm)", "type": "text", "name": "dimensions" },
         { "textContent": "Material", "type": "text", "name": "material" },
         { "textContent": "Colour", "type": "text", "name": "colour" }],
-    "filters": [
+    "6": [
         { "textContent": "Connection", "type": "text", "name": "connection" },
         { "textContent": "Colour", "type": "text", "name": "colour" }
     ]
 };
 
-document.getElementById('product-category-select').addEventListener("change", function (event) {
+document.getElementById('category').addEventListener("change", function (event) {
     console.log(event.target.value);
 
     let parent = document.getElementById('attributes');
@@ -124,4 +124,14 @@ document.getElementById('product-category-select').addEventListener("change", fu
             formGroup.appendChild(input);
         }
     });
+})
+
+document.getElementById('add_product_form').addEventListener("click", function(e) {
+    let parent = document.getElementById('attributes');
+    console.log(parent);
+})
+
+document.getElementById('add_product_form').addEventListener("submit", function(e) {
+    let parent = document.getElementById('attributes');
+    console.log(parent);
 })

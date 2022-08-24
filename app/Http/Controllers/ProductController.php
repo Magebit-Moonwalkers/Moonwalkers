@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attribute_Value;
+use App\Models\Product;
+use Attribute;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -33,10 +37,48 @@ class ProductController extends Controller
         return view('admin-productView', compact('id'));
     }
 
-    public function store (array $params) {
-        $collection = collect($params);
-        $product = new Product($collection->all());
+    /**
+     * Store a new product.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function store(Request $request)
+    {
+        // $rules = array (
+
+        // );
+
+        // $this->validate ($request, $rules);
+
+        //adding product
+        $product = new Product();
+        $product->name = $request->name;
+        $product->product_code = $request->product_code;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+        $product->brand_id = $request->brand;
+        $product->category_id = $request->category;
+
+        //extracting all attributes
+        $attributeContr = new AttributeController();
+        $attributes = $attributeContr->index();
+
+        $attributeValue = new Attribute_Value();
+
+        foreach ($attributes as $attribute) {
+            $attributeName = $attribute->name;
+            $attributeId = $attribute->attribute_id;
+            if ($request->$attributeName) {
+                $attributeValue->product_id = $this->getLastProductId()+1;
+                $attributeValue->value = $request->$attributeName; 
+                $attributeValue->attribute_id = $attributeId;
+            }
+        }
+
         $product->save();
+        // return redirect()->route('modify-products');
     }
 
     public function update () {
@@ -45,5 +87,10 @@ class ProductController extends Controller
 
     public function delete () {
         
+    }
+
+    public function getLastProductId() { 
+        $lastProduct = DB::table('products')->latest('product_id')->first();
+        return $lastProduct ? $lastProduct->product_id : 0;
     }
 }
