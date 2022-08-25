@@ -7,7 +7,7 @@
     <div class="content-wrapper">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="reg-card">
+                <div class="form-card reg-card">
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">

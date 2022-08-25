@@ -5,8 +5,8 @@
 @vite(['resources/sass/form.scss'])
 <div class="content">
     <div class="content-wrapper">
-        <div class="contact-card">
-            <div class="card-header">{{ __('Contact us') }}</div>
+        <div class="form-card contact-card">
+            <div class="card-header bottom-space">{{ __('Contact us') }}</div>
 
             <div class="card-body">
                 <form>
