@@ -40,6 +40,7 @@ app.mount('#app');
 
 let attributes = {
     "1": [
+        { "textContent": "Optics type", "type": "text", "name": "optics_type" },
         { "textContent": "Max useful magnification", "type": "text", "name": "magnification" },
         { "textContent": "Focal length (mm)", "type": "number", "name": "focal_length" },
         {

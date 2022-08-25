@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Product_Attribute;
 use Attribute;
@@ -42,7 +43,6 @@ class ProductController extends Controller
     {
         $product = DB::table('products')->where('product_id', $request->id)->get()->first();
         $attributes = DB::table('product_attributes')->join('attributes', 'product_attributes.attribute_id','=', 'attributes.attribute_id')->where('product_id', $request->id)->get();
-        // $id = $request->id;
 
         $brandsContr = new BrandController();
         $brands = $brandsContr->index();
@@ -69,11 +69,11 @@ class ProductController extends Controller
             'quantity' => 'required|numeric|min:0',
             'description' => 'required',
             'category' => 'required',
-            'brand' => 'required'
+            'brand' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         );
 
         $this->validate($request, $rules);
-
 
         //adding product
         $product = new Product();
@@ -83,28 +83,37 @@ class ProductController extends Controller
         $product->quantity = $request->quantity;
         $product->brand_id = $request->brand;
         $product->category_id = $request->category;
+        $product->save();
+
+        $productId = $this->getLastProductId();
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images/products'), $imageName);
+        $image = new Image();
+        $image->src = '/images/products/'.$imageName;
+        $image->product_id = $productId;
+
+        $image->save();
 
         //extracting all attributes
         $attributeContr = new AttributeController();
         $attributes = $attributeContr->index();
 
-
-        $product->save();
+        
 
         foreach ($attributes as $attribute) {
             $attributeName = $attribute->name;
             $attributeId = $attribute->attribute_id;
             if ($request->$attributeName) {
                 $productAttribute = new Product_Attribute();
-                $productAttribute->product_id = $this->getLastProductId();
+                $productAttribute->product_id = $productId;
                 $productAttribute->attribute_value = $request->$attributeName; 
                 $productAttribute->attribute_id = $attributeId;
                 $productAttribute->save();
             }
         }
 
-        print_r($product);
-        // return redirect()->route('modify-products');
+        return redirect()->route('modify-products');
     }
 
     public function update () {

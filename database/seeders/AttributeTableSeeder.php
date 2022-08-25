@@ -71,6 +71,9 @@ class AttributeTableSeeder extends Seeder
         DB::table("attributes")->insert([
             'name' => 'colour',
         ]);
+        DB::table("attributes")->insert([
+            'name' => 'optics_type',
+        ]);
 
     }
 }
