@@ -35,6 +35,14 @@ class BrandTableSeeder extends Seeder
         DB::table("brands")->insert([
             'name' => 'Bresser',
         ]);
-
+        DB::table("brands")->insert([
+            'name' => 'CELESTRON',
+        ]);
+        DB::table("brands")->insert([
+            'name' => 'SKY-WATCHER',
+        ]);
+        DB::table("brands")->insert([
+            'name' => 'OKLOP',
+        ]);
     }
 }

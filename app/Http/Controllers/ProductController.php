@@ -112,4 +112,23 @@ class ProductController extends Controller
         $lastProduct = DB::table('products')->latest('product_id')->first();
         return $lastProduct ? $lastProduct->product_id : 0;
     }
+
+    public function showAllProductsInCategory($category) {
+        $category_id = DB::table('categories')->where('name', $category)->value('category_id');
+        $products = DB::table('products')->where('category_id', $category_id)->get();
+        
+        $images = array();
+        foreach($products as $product) {
+            $image = DB::table('images')->where('product_id', $product->product_id)->first();
+            array_push($images, $image);
+        }
+
+        return view('products-in-category', ['products' => $products, 'category' => $category, 'images' => $images]);
+    }
+
+    public function showProduct($category, $id) {
+        $product = DB::table('products')->where('product_id', $id)->first();
+
+        return view('product', ['product' => $product]);
+    }
 }

@@ -33,6 +33,10 @@ Route::get('/about', function () {
 
 Route::get('/products', [CategoryController::class, 'show']);
 
+Route::get('products/{category}', [ProductController::class, 'showAllProductsInCategory'])->name('products.in.category');
+
+Route::get('products/{category}/{id}', [ProductController::class, 'showProduct'])->name('product');
+
 Route::get('/contact-us', function () {
     return view('contact-us');
 });
