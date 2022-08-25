@@ -37,6 +37,8 @@ Route::get('products/{category}', [ProductController::class, 'showAllProductsInC
 
 Route::get('products/{category}/{id}', [ProductController::class, 'showProduct'])->name('product');
 
+Route::get('products/{id}', [ProductController::class, 'showProduct'])->name('search-product');
+
 Route::get('search', [ProductController::class, 'showAllProductsForSearchRequest'])->name('products.for.search');
 
 Route::get('/contact-us', function () {
