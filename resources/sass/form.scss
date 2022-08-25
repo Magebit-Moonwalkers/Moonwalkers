@@ -3,7 +3,11 @@
     justify-content: center;
 }
 
-.login-card, .reg-card, .contact-card {
+.admin-add-card {
+    padding-top: 20px !important;
+}
+
+.form-card{
     padding-top: 150px;
     display: flex;
     flex-direction: column;
@@ -13,18 +17,25 @@
     .card-header {
         font-size: xx-large;
         font-weight: 600;
+        &.bottom-space {
+            margin-bottom: 15px;
+        }
     }
 
     .card-body {
         width: 100%;
 
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
         form {
             display: flex;
             flex-direction: column;
             gap: 4px;
             font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
         }
-        input:not([type=checkbox])  {
+        input:not([type=checkbox],[type=file])  {
             box-sizing: border-box;
             width: 100%;
             height: 40px;
@@ -36,11 +47,28 @@
             color: #000;
             font-size: medium;
         }
+        input[type=number] {
+            width: 20%;
+            padding-left: 3%;
+            padding-right: 3%;
+            text-align: center;
+        }
+        input[type=file] {
+            width: 100%;
+            font-size: medium;
+            &::file-selector-button {
+                background: rgb(75, 175, 235);
+                border: none;
+                width: 100px;
+                border-radius: 20px;
+                padding: 4px;
+                font-size: small;
+            }           
+        }
         input[type=checkbox]:hover {
             cursor: pointer;
         }
         .user-details {
-            margin-top: 15px;
             display: flex;
             justify-content: space-between;
         }
@@ -56,7 +84,16 @@
             font-family: inherit;
             border: none;
         }
-        .col-form-label {
+        select {
+            box-sizing: border-box;
+            height: 20px;
+            border-radius: 5px;
+            padding: 0 5px;
+            margin: 0;
+            font-family: inherit;
+            border: none;
+        }
+        label:not(.form-check-label) {
             margin-left: 5%;
         }
         .btn-wrap {
@@ -87,6 +124,14 @@
         }
         .btn-link {
             color: rgb(75, 175, 235);
+        }
+        .attributes {
+            label:not(.form-check-label) {
+                margin-left: 5%;
+            }
+            .form-group > * {
+                margin: 2px 0;
+            }
         }
     }
 }

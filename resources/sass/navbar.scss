@@ -140,7 +140,11 @@
         display: block;
         text-align: left;
 
-        :hover {
+        &:first-of-type {
+            margin-top: 15px;
+        }
+
+        &:hover {
             background-color: rgba(125, 71, 150, 0.8);
         }
     }
