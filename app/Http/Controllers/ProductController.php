@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Product_Attribute;
 use Attribute;
@@ -42,7 +43,6 @@ class ProductController extends Controller
     {
         $product = DB::table('products')->where('product_id', $request->id)->get()->first();
         $attributes = DB::table('product_attributes')->join('attributes', 'product_attributes.attribute_id','=', 'attributes.attribute_id')->where('product_id', $request->id)->get();
-        // $id = $request->id;
 
         $brandsContr = new BrandController();
         $brands = $brandsContr->index();
@@ -62,7 +62,6 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        echo gettype($request->quantity);
         $rules = array (
             'name' => 'required|max:255',
             'product_code' => 'required|max:255|unique:products,product_code',
@@ -70,49 +69,61 @@ class ProductController extends Controller
             'quantity' => 'required|numeric|min:0',
             'description' => 'required',
             'category' => 'required',
-            'brand' => 'required'
+            'brand' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         );
 
         $this->validate($request, $rules);
 
         //adding product
         $product = new Product();
-        $product->name = $request->name;
-        $product->product_code = $request->product_code;
+        $product->name = (string)$request->name;
+        $product->product_code = (string)$request->product_code;
         $product->price = $request->price;
         $product->quantity = $request->quantity;
         $product->brand_id = $request->brand;
         $product->category_id = $request->category;
+        $product->save();
+
+        $productId = $this->getLastProductId();
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images/products'), $imageName);
+        $image = new Image();
+        $image->src = '/images/products/'.$imageName;
+        $image->product_id = $productId;
+
+        $image->save();
 
         //extracting all attributes
         $attributeContr = new AttributeController();
         $attributes = $attributeContr->index();
 
-
-        $product->save();
+        
 
         foreach ($attributes as $attribute) {
             $attributeName = $attribute->name;
             $attributeId = $attribute->attribute_id;
             if ($request->$attributeName) {
                 $productAttribute = new Product_Attribute();
-                $productAttribute->product_id = $this->getLastProductId();
+                $productAttribute->product_id = $productId;
                 $productAttribute->attribute_value = $request->$attributeName; 
                 $productAttribute->attribute_id = $attributeId;
                 $productAttribute->save();
             }
         }
 
-        print_r($product);
-        // return redirect()->route('modify-products');
+        return redirect()->route('modify-products');
     }
 
     public function update () {
 
     }
 
-    public function delete () {
-        
+    public function delete ($id) {
+        DB::table('products')->where('product_id', $id)->delete();
+        DB::table('product_attributes')->where('product_id', $id)->delete();
+        return redirect()->route('modify-products');        
     }
 
     public function getLastProductId() { 
@@ -165,12 +176,3 @@ class ProductController extends Controller
         return view('products-in-search')->with(compact('products'))->with(compact('images'))->with(compact('search'));
     }
 }
-
-
-
-//Celestron
-//$productIds = Array ( [0] => 1 [1] => 2 [2] => 4 )
-
-/*
-Array ( [0] => App\Models\Product Object ( [connection:protected] => mysql [table:protected] => products [primaryKey:protected] => id [keyType:protected] => int [incrementing] => 1 [with:protected] => Array ( ) [withCount:protected] => Array ( ) [preventsLazyLoading] => [perPage:protected] => 15 [exists] => 1 [wasRecentlyCreated] => [escapeWhenCastingToString:protected] => [attributes:protected] => Array ( [product_id] => 4 [name] => Celestron Travel Scope 70 ”Solar system edition” telescope [product_code] => 822035S [price] => 175 [quantity] => 1 [brand_id] => 7 [category_id] => 1 [created_at] => [updated_at] => ) [original:protected] => Array ( [product_id] => 4 [name] => Celestron Travel Scope 70 ”Solar system edition” telescope [product_code] => 822035S [price] => 175 [quantity] => 1 [brand_id] => 7 [category_id] => 1 [created_at] => [updated_at] => ) [changes:protected] => Array ( ) [casts:protected] => Array ( ) [classCastCache:protected] => Array ( ) [attributeCastCache:protected] => Array ( ) [dates:protected] => Array ( ) [dateFormat:protected] => [appends:protected] => Array ( ) [dispatchesEvents:protected] => Array ( ) [observables:protected] => Array ( ) [relations:protected] => Array ( ) [touches:protected] => Array ( ) [timestamps] => 1 [hidden:protected] => Array ( ) [visible:protected] => Array ( ) [fillable:protected] => Array ( [0] => product_id [1] => name [2] => product_code [3] => price [4] => quantity [5] => brand_id [6] => category_id ) [guarded:protected] => Array ( [0] => * ) ) ) [escapeWhenCastingToString:protected] => )
-*/
