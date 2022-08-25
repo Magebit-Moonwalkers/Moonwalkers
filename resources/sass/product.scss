@@ -707,6 +707,10 @@ body {
                     border: 1px solid aqua;
                     padding: 10px;
                 }
+
+                :first-child {
+                    width: 40%;
+                }
             }
         }
     } 
