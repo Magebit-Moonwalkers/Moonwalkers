@@ -571,11 +571,13 @@ body {
     }
 }
 
-.content-wrapper {
+.content-wrapper.product {
+    height: auto;
     display: flex;
 	flex-direction: row;
 	justify-content: space-between;
     gap: 50px;
+    padding-bottom: 36px;
 }
 
 .left {
@@ -680,7 +682,7 @@ body {
 
     .attributes {
         width: 100%;
-        height: 100%;
+        // height: 100%;
         margin-top: 10%;
 
         .technical-info {
