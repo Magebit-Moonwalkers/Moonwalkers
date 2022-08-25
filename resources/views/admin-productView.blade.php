@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="content">
-    <div class="content-wrapper">
-        <div class="form-card admin-add-card">
+    <div class="content-wrapper admin-edit-page">
+        <div class="form-card">
             <div class="card-header bottom-space">{{ __('Product edit form') }}</div>
             <div class="card-body">
                 <form class="p-3 px-5" method="post" action="{{ route('modify-products') }}" enctype="multipart/form-data">
@@ -105,8 +105,9 @@
 
                     <div class="attributes" id="attributes">
                     </div>
-
-                    <button type="submit" class="btn btn-info btn-round">{{__('Save')}}</button>
+                    <div class="btn-wrap">
+                        <button type="submit" class="btn btn-edit-save btn-primary">{{__('Save')}}</button>
+                    </div>
                     @csrf
                     </from>
             </div>
