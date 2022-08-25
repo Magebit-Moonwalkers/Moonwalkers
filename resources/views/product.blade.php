@@ -44,10 +44,12 @@
             <div class="attributes">
                 <div class="technical-info">Specification </div>
                 <table>
+                    @foreach ($attributes as $attribute)
                     <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Centro comercial Moctezuma</td>
+                        <td>{{ $attribute->name }}</td>
+                        <td>{{ $attribute->attribute_value }}</td>
                     </tr>
+                    @endforeach
                 </table>
             </div>
 

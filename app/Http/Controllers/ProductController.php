@@ -149,7 +149,9 @@ class ProductController extends Controller
         $images = DB::table('images')->where('product_id', $id)->get();
         $brand = DB::table('brands')->where('brand_id', $product->brand_id)->value('name');
 
-        return view('product', ['product' => $product, 'images' => $images, 'brand' => $brand]);
+        $attributes = DB::table('attributes')->join('product_attributes', 'attributes.attribute_id', '=', 'product_attributes.attribute_id')->where('product_attributes.product_id', $id)->select('attributes.name', 'product_attributes.attribute_value')->get();
+
+        return view('product', ['product' => $product, 'images' => $images, 'brand' => $brand, 'attributes' => $attributes]);
     }
 
     /**
