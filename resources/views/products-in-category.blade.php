@@ -13,7 +13,7 @@
         @foreach($products as $product)
 
             <div class="card">
-                <a href="#">
+                <a href="{{ route('product', ['category' => $category, 'id' => $product->product_id]) }}">
                     @foreach($images as $image)
                         @if ($product->product_id == $image->product_id)
                             <img src="{{ $image->src }}" />

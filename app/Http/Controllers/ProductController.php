@@ -106,4 +106,9 @@ class ProductController extends Controller
 
         return view('products-in-category', ['products' => $products, 'category' => $category, 'images' => $images]);
     }
+
+    public function showProduct($id) {
+
+        return view('product');
+    }
 }
