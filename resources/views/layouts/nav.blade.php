@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="user-and-logout">
-                            <a id="navbarDropdown" class="user-name-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a class="user-name-link" href="/home">
                                 {{ Auth::user()->name }}
                             </a>
 
