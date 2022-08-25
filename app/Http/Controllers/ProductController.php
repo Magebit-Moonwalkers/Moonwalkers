@@ -31,6 +31,13 @@ class ProductController extends Controller
         return $this->all($columns, $order, $sort);
     }
 
+    public function index()
+    {
+        $products = DB::table('products')->get();
+ 
+        return $products;
+    }
+
     public function showById(Request $request)
     {
         $product = DB::table('products')->where('product_id', $request->id)->get()->first();
@@ -131,4 +138,38 @@ class ProductController extends Controller
 
         return view('product', ['product' => $product]);
     }
+
+    /**
+     *
+     * @param  \Illuminate\Http\Request  $request
+     */
+    public function showAllProductsForSearchRequest(Request $request) {
+        $search = $request->main_search;
+        $searchArray = explode(" ",$search);
+        $productIds = [];
+        foreach ($searchArray as $keyword) {
+            $productTableResults = Product::where('name', 'LIKE', "%$keyword%")->pluck('product_id')->toArray();
+            $productAttributeTableResults = Product_Attribute::where('attribute_value', 'LIKE', "%$keyword%")->pluck('product_id')->toArray();
+            $productIds = array_merge($productTableResults, $productAttributeTableResults);
+        }
+
+        $products = array();
+        $images = array();
+        foreach ($productIds as $productId) {
+            $products = array_merge($products, Product::where('product_id', '=', "$productId")->get()->toArray());
+            $image = DB::table('images')->where('product_id', "$productId")->first();
+            array_push($images, $image);
+        }
+
+        return view('products-in-search')->with(compact('products'))->with(compact('images'))->with(compact('search'));
+    }
 }
+
+
+
+//Celestron
+//$productIds = Array ( [0] => 1 [1] => 2 [2] => 4 )
+
+/*
+Array ( [0] => App\Models\Product Object ( [connection:protected] => mysql [table:protected] => products [primaryKey:protected] => id [keyType:protected] => int [incrementing] => 1 [with:protected] => Array ( ) [withCount:protected] => Array ( ) [preventsLazyLoading] => [perPage:protected] => 15 [exists] => 1 [wasRecentlyCreated] => [escapeWhenCastingToString:protected] => [attributes:protected] => Array ( [product_id] => 4 [name] => Celestron Travel Scope 70 ”Solar system edition” telescope [product_code] => 822035S [price] => 175 [quantity] => 1 [brand_id] => 7 [category_id] => 1 [created_at] => [updated_at] => ) [original:protected] => Array ( [product_id] => 4 [name] => Celestron Travel Scope 70 ”Solar system edition” telescope [product_code] => 822035S [price] => 175 [quantity] => 1 [brand_id] => 7 [category_id] => 1 [created_at] => [updated_at] => ) [changes:protected] => Array ( ) [casts:protected] => Array ( ) [classCastCache:protected] => Array ( ) [attributeCastCache:protected] => Array ( ) [dates:protected] => Array ( ) [dateFormat:protected] => [appends:protected] => Array ( ) [dispatchesEvents:protected] => Array ( ) [observables:protected] => Array ( ) [relations:protected] => Array ( ) [touches:protected] => Array ( ) [timestamps] => 1 [hidden:protected] => Array ( ) [visible:protected] => Array ( ) [fillable:protected] => Array ( [0] => product_id [1] => name [2] => product_code [3] => price [4] => quantity [5] => brand_id [6] => category_id ) [guarded:protected] => Array ( [0] => * ) ) ) [escapeWhenCastingToString:protected] => )
+*/

@@ -38,7 +38,12 @@
                 @else
                     <div class="logged-view">
                         <div class="search-and-cart">
-                            <input type="search" name="main-search" id="main-search" placeholder="Search here...">
+                            <form id="search-form" action="{{ route('products.for.search') }}" enctype="multipart/form-data">
+                                @csrf
+                                @method('get')
+                                <input type="search" name="main_search" id="main-search" placeholder="Search here...">
+                                @csrf
+                            </form>
                             @if(!auth()->user() || auth()->user()->role != "administrator")
                                 <a href="/cart" class="cart-btn">Cart</a>
                             @endif
