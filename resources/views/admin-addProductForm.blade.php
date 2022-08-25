@@ -8,7 +8,7 @@
 $fields = ["name", "SKU", "price", "description"];
 ?>
 <div class="content-no-footer">
-    <div class="content-wrapper admin-add-card">
+    <div class="content-wrapper admin-add-page">
         <div class="form-card">
             <div class="card-header bottom-space">{{ __('Add product') }}</div>
             <div class="card-body">

@@ -4,7 +4,7 @@
 
 @vite(['resources/sass/form.scss'])
 <div class="content">
-    <div class="content-wrapper register">
+    <div class="content-wrapper register-page">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="form-card reg-card">

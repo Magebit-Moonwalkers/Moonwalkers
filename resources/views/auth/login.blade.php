@@ -3,8 +3,9 @@
 @section('content')
 
 @vite(['resources/sass/form.scss'])
+
 <div class="content">
-    <div class="content-wrapper login">
+    <div class="content-wrapper login-page">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="form-card login-card">
