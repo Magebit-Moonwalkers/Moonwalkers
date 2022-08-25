@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'MoonWalkers') }}</title>
+    <title>MoonWalkers</title>
+    <link rel="icon" type="image/x-icon" href="/images/icons/temp-title-icon.png">
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
