@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content-wrapper">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <br><br><br>
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
+@vite(['resources/sass/admin.scss'])
+
+<div class="content">
+    <div class="content-wrapper admin">
+        <div class="card-functionalities-wrap">
+            <div class="card">
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

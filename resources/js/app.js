@@ -54,20 +54,17 @@ let attributes = {
             "name": "area_of_application"
         },
         { "textContent": "Aperture (mm)", "type": "number", "name": "aperture" },
-        { "textContent": "Mounting type", "type": "text", "name": "mounting_type" },
-        { "textContent": "Manufaturer", "type": "text", "name": "manufaturer" }],
+        { "textContent": "Mounting type", "type": "text", "name": "mounting_type" }],
     "2": [
         { "textContent": "Max additional load capacity (kg)", "type": "number", "name": "max_additional_load_capacity" },
         { "textContent": "Material tripod", "type": "text", "name": "material_tripod" },
         { "textContent": "Mounting type", "type": "text", "name": "mounting_type" },
         { "textContent": "Total weight (kg)", "type": "number", "name": "total_weight" },
-        { "textContent": "Max height (cm)", "type": "number", "name": "max_height" },
-        { "textContent": "Manufaturer", "type": "text", "name": "manufaturer" }],
+        { "textContent": "Max height (cm)", "type": "number", "name": "max_height" }],
     "3": [
         { "textContent": "Focal length (mm)", "type": "number", "name": "focal_length" },
         { "textContent": "Apparent field of view", "type": "text", "name": "apparent_field_of_view" },
-        { "textContent": "Connection", "type": "text", "name": "connection" },
-        { "textContent": "Manufaturer", "type": "text", "name": "manufaturer" }],
+        { "textContent": "Connection", "type": "text", "name": "connection" }],
     "4": [
         { "textContent": "Magnification", "type": "text", "name": "magnification" },
         { "textContent": "Connection (to the telescope)", "type": "text", "name": "connection" }],
@@ -83,21 +80,35 @@ let attributes = {
     ]
 };
 
+window.onload = function(event) {
+    console.log(document.getElementById('category').value);
+    addAttributesToHTML(document.getElementById('category').value);
+}
+   
 document.getElementById('category').addEventListener("change", function (event) {
     console.log(event.target.value);
+    addAttributesToHTML(event.target.value);
+});
 
+document.getElementById('category').addEventListener("load", function (event) {
+    // console.log(event.target.value);
+    // addAttributesToHTML(event.target.value);
+    console.log(123123);
+});
+
+function addAttributesToHTML(e) {
     let parent = document.getElementById('attributes');
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
-    if (!event.target.value) return;
+    if (!e) return;
 
     let formGroup = document.createElement("div");
     formGroup.classList.add("form-group");
 
     parent.appendChild(formGroup);
 
-    attributes[event.target.value].forEach(element => {
+    attributes[e].forEach(element => {
         let label = document.createElement("label");
         label.setAttribute("for", element["name"]);
         label.textContent = element["textContent"];
@@ -124,14 +135,4 @@ document.getElementById('category').addEventListener("change", function (event) 
             formGroup.appendChild(input);
         }
     });
-})
-
-document.getElementById('add_product_form').addEventListener("click", function(e) {
-    let parent = document.getElementById('attributes');
-    console.log(parent);
-})
-
-document.getElementById('add_product_form').addEventListener("submit", function(e) {
-    let parent = document.getElementById('attributes');
-    console.log(parent);
-})
+}

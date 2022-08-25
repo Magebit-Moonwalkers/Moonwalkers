@@ -90,6 +90,11 @@
             padding-right: 4%;
             color: #fff;
             font-size: small;
+            transition: width 2s;
+
+            &:focus {
+                width: 350px;
+            }
         }
 
         .cart-btn {
@@ -140,7 +145,11 @@
         display: block;
         text-align: left;
 
-        :hover {
+        &:first-of-type {
+            margin-top: 15px;
+        }
+
+        &:hover {
             background-color: rgba(125, 71, 150, 0.8);
         }
     }

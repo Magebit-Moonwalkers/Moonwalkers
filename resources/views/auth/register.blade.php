@@ -7,7 +7,7 @@
     <div class="content-wrapper">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="reg-card">
+                <div class="form-card reg-card">
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-0 register-btn-wrap">
+                            <div class="row mb-0 btn-wrap">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Register') }}
