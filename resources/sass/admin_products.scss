@@ -1,33 +1,25 @@
 .content-wrapper.admin-products {
-    height: calc(100vh - 70px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: auto;
 }
 
-.add-products-wrap {
+.btn-title {
+    padding: 40px 0;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
     .add-product-btn {
-        font-size: xx-large;
+        color: #000;
         text-decoration: none;
-        color: rgb(75, 175, 235);
-    }
-    .products {
-        display: flex;
-        flex-direction: column;
-        gap: 7px;
-        .product {
-            a {
-                font-size: large;
-                color: #000;
-                background: rgb(75, 175, 235);
-                text-decoration: none;
-                font-style: italic;
-                border-radius: 10px;
-                padding: 2px 10px;
-            }
+        background: rgb(75, 175, 235);
+        border-radius: 40px;
+        padding: 12px 20px;
+        transition: 300ms;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            margin: 0;
         }
     }
 }
