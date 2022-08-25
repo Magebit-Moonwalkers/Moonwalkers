@@ -5,14 +5,38 @@
 @section('content')
 <div class="content">
     <div class="content-wrapper">
-    <div class="category-title">
-        <h1>{{ $category}}</h1>
+        <div class="category-title">
+            <h1>{{ $category}}</h1>
+        </div>
+
+        <div class="product-container">
+        @foreach($products as $product)
+
+            <div class="card">
+                <a href="#">
+                    @foreach($images as $image)
+                        @if ($product->product_id == $image->product_id)
+                            <img src="{{ $image->src }}" />
+                        @endif
+                    @endforeach
+
+                    <div class="info">
+                        <h4>{{ $product->name }}</h4>
+                        <price>{{ $product->price }} €</price>
+                    </div>
+                </a>
+            </div>
+
+        @endforeach
+        </div>
     </div>
-    @foreach($products as $product)
 
-        <h4>{{ $product->name }}</h4>
-
-    @endforeach
-</div>
+    <div class="absolute">
+        <div class="astronaut">
+            <div class="moving-astronaut">
+                <img src="/images/backgrounds/astronaut.png" />
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

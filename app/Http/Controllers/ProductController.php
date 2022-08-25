@@ -96,9 +96,14 @@ class ProductController extends Controller
 
     public function showAllProductsInCategory($category) {
         $category_id = DB::table('categories')->where('name', $category)->value('category_id');
-
         $products = DB::table('products')->where('category_id', $category_id)->get();
+        
+        $images = array();
+        foreach($products as $product) {
+            $image = DB::table('images')->where('product_id', $product->product_id)->first();
+            array_push($images, $image);
+        }
 
-        return view('products-in-category', ['products' => $products, 'category' => $category]);
+        return view('products-in-category', ['products' => $products, 'category' => $category, 'images' => $images]);
     }
 }
