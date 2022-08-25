@@ -24,14 +24,6 @@ class Attribute extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function attribute_values()
-    {
-        return $this->hasMany(Attribute_Value::class);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function product_attributes()
     {
         return $this->hasMany(Product_Attribute::class);

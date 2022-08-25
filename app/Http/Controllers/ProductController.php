@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attribute_Value;
 use App\Models\Product;
+use App\Models\Product_Attribute;
 use Attribute;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -33,8 +33,17 @@ class ProductController extends Controller
 
     public function showById(Request $request)
     {
-        $id = $request->id;
-        return view('admin-productView', compact('id'));
+        $product = DB::table('products')->where('product_id', $request->id)->get()->first();
+        $attributes = DB::table('product_attributes')->join('attributes', 'product_attributes.attribute_id','=', 'attributes.attribute_id')->where('product_id', $request->id)->get();
+        // $id = $request->id;
+
+        $brandsContr = new BrandController();
+        $brands = $brandsContr->index();
+    
+        $categoriesContr = new CategoryController();
+        $categories = $categoriesContr->index();
+
+        return view('admin-productView')->with(compact('brands'))->with(compact('categories'))->with(compact('product'))->with(compact('attributes'));
     }
 
     /**
@@ -46,11 +55,18 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        // $rules = array (
+        echo gettype($request->quantity);
+        $rules = array (
+            'name' => 'required|max:255',
+            'product_code' => 'required|max:255|unique:products,product_code',
+            'price' => 'required|numeric',
+            'quantity' => 'required|numeric|min:0',
+            'description' => 'required',
+            'category' => 'required',
+            'brand' => 'required'
+        );
 
-        // );
-
-        // $this->validate ($request, $rules);
+        $this->validate($request, $rules);
 
         //adding product
         $product = new Product();
@@ -65,19 +81,22 @@ class ProductController extends Controller
         $attributeContr = new AttributeController();
         $attributes = $attributeContr->index();
 
-        $attributeValue = new Attribute_Value();
+
+        $product->save();
 
         foreach ($attributes as $attribute) {
             $attributeName = $attribute->name;
             $attributeId = $attribute->attribute_id;
             if ($request->$attributeName) {
-                $attributeValue->product_id = $this->getLastProductId()+1;
-                $attributeValue->value = $request->$attributeName; 
-                $attributeValue->attribute_id = $attributeId;
+                $productAttribute = new Product_Attribute();
+                $productAttribute->product_id = $this->getLastProductId();
+                $productAttribute->attribute_value = $request->$attributeName; 
+                $productAttribute->attribute_id = $attributeId;
+                $productAttribute->save();
             }
         }
 
-        $product->save();
+        print_r($product);
         // return redirect()->route('modify-products');
     }
 

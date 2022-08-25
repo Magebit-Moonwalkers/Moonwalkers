@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('product_attribute_id');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('attribute_id');
+            $table->string('attribute_value');
             $table->timestamps();
         });
     }
