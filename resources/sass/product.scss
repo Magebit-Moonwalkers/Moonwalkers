@@ -575,11 +575,12 @@ body {
     display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-    gap: 30px;
+    gap: 50px;
 }
 
 .left {
-    width: 60%;
+    margin-top: 30px;
+    width: 50%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -596,7 +597,84 @@ body {
 }
 
 .right {
-    width: 40%;
-    height: 300px;
-    background-color: aqua;
+    width: 50%;
+    padding-left: 30px;
+    
+    .name {
+        color: #fff;
+        font-family: Lato;
+        font-weight: 300;
+        font-size: 25px;
+        letter-spacing: 5px;
+        margin-top: -60px;
+        padding-left: 10px;
+    }
+    
+    .name h1 {
+        background: -webkit-linear-gradient(45deg, #00ccff 15%, #d400d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: white;
+    }
+
+    p, label {
+        font-size: 18px;
+    }
+
+    .general-info {
+        margin-top: 40px;
+
+        p {
+            margin: 5px;
+        }
+
+        .flex {
+            display: flex;
+
+            :nth-child(2) {
+                font-weight: bold;
+            }
+
+        }
+    }
+
+    .price {
+        font-size: 40px;
+        color: aquamarine;
+        font-weight: bold;
+    }
+
+    form {
+        margin: 0;
+
+        input {
+            margin: 10px 0;
+            height: 40px;
+            width: 100px;
+        }
+
+        .buttons {
+            margin-top: 40px;
+
+            button {
+                height: 80px;
+                width: 80%;
+                font-size: 20px;
+                margin-bottom: 10px;
+                background: transparent;
+            }
+
+            .add-to-cart {
+                border: 2px solid #00ccff;
+                color: #00ccff;
+            }
+
+            .buy {
+                border: 2px solid #ed34ed;
+                color: #ed34ed;
+            }
+
+        }
+    }
 }
