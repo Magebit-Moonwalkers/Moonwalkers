@@ -28,8 +28,8 @@
                             <div class="info">
                                 <h4>{{ $product->name }}</h4>
                                 <buttons>
-                                    <button>
-                                        <a href="{{ route('admin.product.show', $product->product_id) }}">Edit</a>
+                                    <button class="edit-button">
+                                        <a id="editBtn" href="{{ route('admin.product.show', $product->product_id) }}">Edit</a>
                                     </button>
                                     <form id="delete-button" action="{{ route('admin.product.delete', ['id' => $product->product_id]) }}">
                                         @csrf

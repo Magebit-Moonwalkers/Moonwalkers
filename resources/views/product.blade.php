@@ -9,7 +9,7 @@
 
 
 <div class="content">
-    <div class="content-wrapper">
+    <div class="content-wrapper product">
         <div class="left">
                 @foreach ($images as $image)
                     <img src="{{ $image->src }}" />

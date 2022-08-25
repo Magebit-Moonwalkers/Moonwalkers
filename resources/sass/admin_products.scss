@@ -23,3 +23,24 @@
         }
     }
 }
+
+.edit-button, #deleteBtn {
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 10px;
+
+}
+.edit-button {
+    margin-bottom: 5px;
+    a {
+        color: rgb(75, 175, 235);
+    }
+}
+
+#deleteBtn {
+    color: red;
+    cursor: pointer;
+}

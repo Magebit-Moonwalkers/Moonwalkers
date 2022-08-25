@@ -20,6 +20,7 @@
         @if ($products)
         <div class="product-container">
             @foreach($products as $product)
+
                 <div class="card">
                     <a href="{{ route('search-product', ['id' => $product["product_id"]]) }}">
                         @foreach($images as $image)
@@ -37,7 +38,7 @@
             @endforeach
         </div>
         @else
-        <div>Couldn't find any product matching your request</div>
+        <div class="cant-find">Couldn't find any product matching your request</div>
         @endif
     </div>
 
