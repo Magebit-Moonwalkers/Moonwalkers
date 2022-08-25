@@ -9,13 +9,14 @@
         <div class="search-title">
             <h1>Search results</h1>
         </div>
-
-        <form id="search-form" action="{{ route('products.for.search') }}" enctype="multipart/form-data">
-            @csrf
-            @method('get')
-            <input type="search" name="main_search" id="main-search" placeholder="Search here..." value="{{$search}}">
-            @csrf
-        </form>
+        <div class="search-wrapper">
+            <form id="search-form" action="{{ route('products.for.search') }}" enctype="multipart/form-data">
+                @csrf
+                @method('get')
+                <input type="search" name="main_search" id="main-search" placeholder="Search here..." value="{{$search}}">
+                @csrf
+            </form>
+        </div>
         @if ($products)
         <div class="product-container">
         @foreach($products as $product)
@@ -50,4 +51,9 @@
         </div>
     </div>
 </div>
+
+@if(!auth()->user() || auth()->user()->role != "administrator")
+    @include('layouts.footer')
+@endif
+
 @endsection

@@ -19,4 +19,8 @@
     </div>
 </div>
 
+@if(!auth()->user() || auth()->user()->role != "administrator")
+    @include('layouts.footer')
+@endif
+
 @endsection

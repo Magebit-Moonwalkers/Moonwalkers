@@ -16,12 +16,14 @@ padding: 20px 0;
 
 .card {
     position: relative;
-    width: 17vw;
+    max-width: 100%;
+    min-width: 200px;
     height: 50vh;
     border: 1px solid white;
     padding: 5px;
-    padding-top: 10px;
+    padding-top: 20px;
     background-color: rgba(0, 1, 49, 0.8);
+    border-radius: 5px;
 
     a {
         text-decoration: none;
@@ -34,8 +36,7 @@ padding: 20px 0;
         width: 95%;
         object-fit: contain;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
     }
 
     .info {
