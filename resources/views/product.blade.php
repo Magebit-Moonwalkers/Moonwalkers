@@ -44,7 +44,7 @@
             <div class="attributes">
                 <div class="technical-info">Specification </div>
                 <table>
-                    @foreach ($attributes as $attribute)
+                @foreach ($attributes as $attribute)
                     <tr>
                         <td>{{ $attribute->name }}</td>
                         <td>{{ $attribute->attribute_value }}</td>
@@ -56,9 +56,5 @@
         </div>
     </div>
 </div>
-
-@if(!auth()->user() || auth()->user()->role != "administrator")
-@include('layouts.footer')
-@endif
 
 @endsection
