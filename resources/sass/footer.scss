@@ -99,7 +99,7 @@
         display: flex;
         align-items: center;
         gap: 30px;
-        & > * {
+        & > * > * {
             margin: 0;
             fill: rgb(75, 175, 235);
         }
