@@ -6,7 +6,6 @@
     <div class="content">
         <div class="content-wrapper">
             <div class="left">
-                @foreach
             </div>
             <div class="right">
             </div>
