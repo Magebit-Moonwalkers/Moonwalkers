@@ -27,6 +27,12 @@
             <div class="right-wrapper">
                 @guest
                     <div class="guest-view">
+                        <form id="search-form" action="{{ route('products.for.search') }}" enctype="multipart/form-data">
+                            @csrf
+                            @method('get')
+                            <input type="search" name="main_search" id="main-search" placeholder="Search here...">
+                            @csrf
+                        </form>
                         @if (Route::has('login'))
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @endif
