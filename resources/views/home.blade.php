@@ -6,10 +6,8 @@
 
 <div class="content">
     <div class="content-wrapper home">
-        <div class="col-md-8">
+        <div class="card-wrap">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -17,7 +15,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    Hello, {{auth()->user()->name}}!
                 </div>
             </div>
         </div>
