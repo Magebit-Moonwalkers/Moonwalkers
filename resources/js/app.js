@@ -136,3 +136,9 @@ function addAttributesToHTML(e) {
         }
     });
 }
+
+
+
+document.getElementById('deleteBtn').addEventListener("click", function() {
+    confirm('Are you sure you want to delete?');
+})

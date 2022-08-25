@@ -47,13 +47,19 @@ Route::get('/contact-us', function () {
 
 Route::get('/admin/products', function () {
     $products = DB::table('products')->get();
-    return view('admin-products', compact('products'));
+    $images=[];
+    foreach ($products as $product) {
+        $image = DB::table('images')->where('product_id', $product->product_id)->first();
+        array_push($images, $image);
+    }
+    return view('admin-products')->with(compact('products'))->with(compact('images'));
 })->name('modify-products')->middleware('admin');
 
 Route::put('/admin/products', function () {
     $products = DB::table('products')->get();
-    return view('admin-products', compact('products'));
 })->name('modify-products');
+
+Route::get('/admin/products/delete/{id}', [ProductController::class, 'delete'])->name('admin.product.delete');
 
 Route::post('/admin/products', function () {
     $products = DB::table('products')->get();

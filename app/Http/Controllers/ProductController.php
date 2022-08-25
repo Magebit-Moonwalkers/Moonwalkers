@@ -62,7 +62,6 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        echo gettype($request->quantity);
         $rules = array (
             'name' => 'required|max:255',
             'product_code' => 'required|max:255|unique:products,product_code',
@@ -75,10 +74,11 @@ class ProductController extends Controller
 
         $this->validate($request, $rules);
 
+
         //adding product
         $product = new Product();
-        $product->name = $request->name;
-        $product->product_code = $request->product_code;
+        $product->name = (string)$request->name;
+        $product->product_code = (string)$request->product_code;
         $product->price = $request->price;
         $product->quantity = $request->quantity;
         $product->brand_id = $request->brand;
@@ -111,8 +111,10 @@ class ProductController extends Controller
 
     }
 
-    public function delete () {
-        
+    public function delete ($id) {
+        DB::table('products')->where('product_id', $id)->delete();
+        DB::table('product_attributes')->where('product_id', $id)->delete();
+        return redirect()->route('modify-products');        
     }
 
     public function getLastProductId() { 
@@ -165,12 +167,3 @@ class ProductController extends Controller
         return view('products-in-search')->with(compact('products'))->with(compact('images'))->with(compact('search'));
     }
 }
-
-
-
-//Celestron
-//$productIds = Array ( [0] => 1 [1] => 2 [2] => 4 )
-
-/*
-Array ( [0] => App\Models\Product Object ( [connection:protected] => mysql [table:protected] => products [primaryKey:protected] => id [keyType:protected] => int [incrementing] => 1 [with:protected] => Array ( ) [withCount:protected] => Array ( ) [preventsLazyLoading] => [perPage:protected] => 15 [exists] => 1 [wasRecentlyCreated] => [escapeWhenCastingToString:protected] => [attributes:protected] => Array ( [product_id] => 4 [name] => Celestron Travel Scope 70 ”Solar system edition” telescope [product_code] => 822035S [price] => 175 [quantity] => 1 [brand_id] => 7 [category_id] => 1 [created_at] => [updated_at] => ) [original:protected] => Array ( [product_id] => 4 [name] => Celestron Travel Scope 70 ”Solar system edition” telescope [product_code] => 822035S [price] => 175 [quantity] => 1 [brand_id] => 7 [category_id] => 1 [created_at] => [updated_at] => ) [changes:protected] => Array ( ) [casts:protected] => Array ( ) [classCastCache:protected] => Array ( ) [attributeCastCache:protected] => Array ( ) [dates:protected] => Array ( ) [dateFormat:protected] => [appends:protected] => Array ( ) [dispatchesEvents:protected] => Array ( ) [observables:protected] => Array ( ) [relations:protected] => Array ( ) [touches:protected] => Array ( ) [timestamps] => 1 [hidden:protected] => Array ( ) [visible:protected] => Array ( ) [fillable:protected] => Array ( [0] => product_id [1] => name [2] => product_code [3] => price [4] => quantity [5] => brand_id [6] => category_id ) [guarded:protected] => Array ( [0] => * ) ) ) [escapeWhenCastingToString:protected] => )
-*/
