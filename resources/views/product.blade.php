@@ -34,12 +34,23 @@
             <form action="">
                 <label for="quantity">Quantity:</label>
                 <br>
-                <input type="number" id="quantity" name="quantity" min="1" max="{{ $product->quantity }}">
+                <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ $product->quantity }}">
                 <div class="buttons">
                     <button type="button" class="add-to-cart">Add to cart</button>
                     <button type="button" class="buy">Buy it now</button>
                 </div>
             </form>
+
+            <div class="attributes">
+                <div class="technical-info">Specification </div>
+                <table>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Centro comercial Moctezuma</td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
     </div>
 </div>
