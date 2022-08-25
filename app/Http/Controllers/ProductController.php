@@ -133,10 +133,11 @@ class ProductController extends Controller
         return view('products-in-category', ['products' => $products, 'category' => $category, 'images' => $images]);
     }
 
-    public function showProduct($category, $id) {
+    public function showProduct($id) {
         $product = DB::table('products')->where('product_id', $id)->first();
+        $images = DB::table('images')->where('product_id', $id)->get();
 
-        return view('product', ['product' => $product]);
+        return view('product', ['product' => $product, 'images' => $images]);
     }
 
     /**
