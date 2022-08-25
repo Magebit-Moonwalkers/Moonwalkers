@@ -686,12 +686,28 @@ body {
         .technical-info {
             width: 100%;
             height: 80px;
-            background: rgba(0, 255, 255, 0.1);
-            text-align: center;
+            background: rgba(98, 28, 151, 0.2);
+            text-align: left;
             font-size: 20px;
             border: 1px solid aqua;
             color: white;
             line-height: 80px;
+            box-sizing: border-box;
+            padding-left: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            tr {
+                height: 60px;
+
+                td {
+                    border: 1px solid aqua;
+                    padding: 10px;
+                }
+            }
         }
     } 
 }
