@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+
+@vite(['resources/sass/form.scss'])
+
+<div class="content">
+    <div class="content-wrapper">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
@@ -62,4 +65,9 @@
         </div>
     </div>
 </div>
+
+@if(!auth()->user() || auth()->user()->role != "administrator")
+@include('layouts.footer')
+@endif
+
 @endsection

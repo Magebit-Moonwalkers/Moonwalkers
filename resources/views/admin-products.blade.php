@@ -9,9 +9,11 @@
 
         <div class="content-wrapper admin-products">
             <div class="add-products-wrap">
-
-                <a href="{{route('add-product')}}" class="add-product-btn">Add product</a>
-
+                <div class="btn-title">
+                    <a href="{{route('add-product')}}" class="add-product-btn">
+                        <h1>Add product</h1>
+                    </a>
+                </div>
                 <div class="product-container">
 
                 @foreach($products as $product)
@@ -26,7 +28,9 @@
                             <div class="info">
                                 <h4>{{ $product->name }}</h4>
                                 <buttons>
-                                    <button><a href="{{ route('admin.product.show', $product->product_id) }}">Edit</a></button>
+                                    <button>
+                                        <a href="{{ route('admin.product.show', $product->product_id) }}">Edit</a>
+                                    </button>
                                     <form id="delete-button" action="{{ route('admin.product.delete', ['id' => $product->product_id]) }}">
                                         @csrf
                                         @method('get')
