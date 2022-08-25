@@ -95,9 +95,7 @@
             margin: 0;
             font-family: inherit;
             border: none;
-            &:hover {
-                cursor: pointer;
-            }
+            cursor: pointer;
         }
         label:not(.form-check-label) {
             margin-left: 5%;
@@ -123,10 +121,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
-            &:hover {
-                cursor: pointer;
-            }
+            cursor: pointer;
         }
         .btn-link {
             color: rgb(75, 175, 235);
