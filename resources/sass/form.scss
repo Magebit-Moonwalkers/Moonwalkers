@@ -63,6 +63,9 @@
                 border-radius: 20px;
                 padding: 4px;
                 font-size: small;
+                &:hover {
+                    cursor: pointer;
+                }
             }           
         }
         input[type=checkbox]:hover {
@@ -92,6 +95,9 @@
             margin: 0;
             font-family: inherit;
             border: none;
+            &:hover {
+                cursor: pointer;
+            }
         }
         label:not(.form-check-label) {
             margin-left: 5%;
