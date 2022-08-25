@@ -90,6 +90,11 @@
             padding-right: 4%;
             color: #fff;
             font-size: small;
+            transition: width 2s;
+
+            &:focus {
+                width: 350px;
+            }
         }
 
         .cart-btn {
