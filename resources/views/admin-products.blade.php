@@ -4,7 +4,7 @@
 
 @vite(['resources/sass/admin_products.scss'])
 
-    <div class="content">
+    <div class="content-no-footer">
 
         <div class="content-wrapper admin-products">
             <div class="add-products-wrap">

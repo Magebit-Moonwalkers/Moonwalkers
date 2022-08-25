@@ -4,7 +4,7 @@
 
 @vite(['resources/sass/admin.scss'])
 
-<div class="content">
+<div class="content-no-footer">
     <div class="content-wrapper admin">
         <div class="card-functionalities-wrap">
             <div class="card">

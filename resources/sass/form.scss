@@ -3,12 +3,31 @@
     justify-content: center;
 }
 
-.admin-add-card {
-    padding-top: 20px !important;
+.content-wrapper {
+    &.admin-add-card {
+        height: calc(100vh - 70px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 !important;
+    }
+    &.register {
+        height: calc(100vh - 294px - 70px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 !important;
+    }
+    &.login {
+        height: calc(100vh - 294px - 70px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 !important;
+    }
 }
 
 .form-card{
-    padding-top: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,7 +1,9 @@
 .content-wrapper.admin {
-    padding: 150px 0;
+
+    height: calc(100vh - 70px);
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .card-functionalities-wrap {

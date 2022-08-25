@@ -6,12 +6,17 @@ padding: 20px 0;
     }
 }
 
+.content-wrapper.products-in-category {
+    height: auto;
+}
+
 .product-container {
     max-width: 1500px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 50px;
     row-gap: 50px;
+    margin-bottom: 64px;
 }
 
 .card {

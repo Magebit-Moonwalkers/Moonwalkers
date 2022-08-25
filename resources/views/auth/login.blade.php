@@ -4,7 +4,7 @@
 
 @vite(['resources/sass/form.scss'])
 <div class="content">
-    <div class="content-wrapper">
+    <div class="content-wrapper login">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="form-card login-card">
@@ -74,4 +74,9 @@
         </div>
     </div>
 </div>
+
+@if(!auth()->user() || auth()->user()->role != "administrator")
+@include('layouts.footer')
+@endif
+
 @endsection

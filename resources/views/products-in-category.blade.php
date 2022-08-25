@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="content">
-    <div class="content-wrapper">
+    <div class="content-wrapper products-in-category">
         <div class="category-title">
             <h1>{{ $category}}</h1>
         </div>

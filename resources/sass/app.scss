@@ -26,3 +26,8 @@ body {
     width: 100%;
     min-height: calc(100vh - 294px - 70px); // footer and top nav height
 }
+
+.content-no-footer {
+    position: relative;
+    top: 70px;
+}

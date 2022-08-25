@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="content">
-    <div class="content-wrapper">
+    <div class="content-wrapper products-in-search">
         <div class="search-title">
             <h1>Search results</h1>
         </div>
@@ -19,24 +19,22 @@
         </div>
         @if ($products)
         <div class="product-container">
-        @foreach($products as $product)
-            <div class="card">
-                <a href="{{ route('search-product', ['id' => $product["product_id"]]) }}">
-                    @foreach($images as $image)
-                        @if ($product["product_id"] == $image->product_id)
-                            <img src="{{ $image->src }}" />
-                        @endif
-                    @endforeach
+            @foreach($products as $product)
+                <div class="card">
+                    <a href="{{ route('search-product', ['id' => $product["product_id"]]) }}">
+                        @foreach($images as $image)
+                            @if ($product["product_id"] == $image->product_id)
+                                <img src="{{ $image->src }}" />
+                            @endif
+                        @endforeach
 
-                    <div class="info">
-                        <h4>{{ $product["name"] }}</h4>
-                        <price>{{ $product["price"] }} €</price>
-                    </div>
-                </a>
-
-            </div>
-
-        @endforeach
+                        <div class="info">
+                            <h4>{{ $product["name"] }}</h4>
+                            <price>{{ $product["price"] }} €</price>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
         </div>
         @else
         <div>Couldn't find any product matching your request</div>
@@ -53,7 +51,7 @@
 </div>
 
 @if(!auth()->user() || auth()->user()->role != "administrator")
-    @include('layouts.footer')
+@include('layouts.footer')
 @endif
 
 @endsection

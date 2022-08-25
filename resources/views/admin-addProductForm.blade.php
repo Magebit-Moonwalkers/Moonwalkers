@@ -7,9 +7,9 @@
 <?php
 $fields = ["name", "SKU", "price", "description"];
 ?>
-<div class="content">
-    <div class="content-wrapper">
-        <div class="form-card admin-add-card">
+<div class="content-no-footer">
+    <div class="content-wrapper admin-add-card">
+        <div class="form-card">
             <div class="card-header bottom-space">{{ __('Add product') }}</div>
             <div class="card-body">
                 <form id="add_product_form" method="post" action="{{ route('admin.store') }}" enctype="multipart/form-data">
