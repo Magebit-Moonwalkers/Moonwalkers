@@ -15,6 +15,30 @@
                 @endforeach
             </div>
             <div class="right">
+                <span class="name">
+                    <h1>{{ $product->name }}</h1>
+                </span>
+                <div class="general-info">
+                    <div class="flex">
+                    <p>Brand: </p>
+                    <p>{{ $brand }}</p>
+                    </div>
+                    <div class="flex">
+                        <p>Product Code: </p>
+                        <p>{{ $product->product_code }}</p>
+                    </div>
+                </div>
+                <p class="price">{{ $product->price }} €</p>
+
+                <form action="">
+                    <label for="quantity">Quantity:</label>
+                    <br>
+                    <input type="number" id="quantity" name="quantity" min="1" max="{{ $product->quantity }}">
+                    <div class="buttons">
+                        <button type="button" class="add-to-cart">Add to cart</button>
+                        <button type="button" class="buy">Buy it now</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

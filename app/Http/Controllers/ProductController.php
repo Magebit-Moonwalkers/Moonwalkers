@@ -136,8 +136,9 @@ class ProductController extends Controller
     public function showProduct($category, $id) {
         $product = DB::table('products')->where('product_id', $id)->first();
         $images = DB::table('images')->where('product_id', $id)->get();
+        $brand = DB::table('brands')->where('brand_id', $product->brand_id)->value('name');
 
-        return view('product', ['product' => $product, 'images' => $images]);
+        return view('product', ['product' => $product, 'images' => $images, 'brand' => $brand]);
     }
 
     /**
