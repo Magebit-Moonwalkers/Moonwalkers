@@ -66,13 +66,15 @@
 
             </tbody>
           </table>
-          <div>
-            <?php use App\Http\Controllers\CartController; ?>
-            Total: {{ CartController::getTotal() }} €
+          <div class="confirm-wrap">
+            <div class="total-price">
+              <?php use App\Http\Controllers\CartController; ?>
+              Total price: {{ CartController::getTotal() }} €
+            </div>
+            <form action="{{ route('checkout-start') }}" class="button-wrap">
+              <button class="checkout-button">Proceed to Checkout</button>
+            </form>
           </div>
-          <form action="{{ route('checkout-start') }}">
-            <button>Proceed to Checkout</button>
-          </form>
         </div>
       </div>
     </div>
