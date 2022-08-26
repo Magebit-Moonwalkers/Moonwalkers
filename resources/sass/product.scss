@@ -681,6 +681,11 @@ body {
                 :visited {
                     color: #00ccff;  
 
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+
                 &:hover {
                     background: linear-gradient(45deg, #00ccff 15%, #d400d4);
                     color: #fff;
@@ -739,8 +744,4 @@ body {
             }
         }
     } 
-}
-
-.footer-block {
-    top: 100px !important;
 }
