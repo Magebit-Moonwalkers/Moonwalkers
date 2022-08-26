@@ -31,7 +31,7 @@
                                     <form id="delete-button" action="{{ route('admin.product.delete', ['id' => $product->product_id]) }}">
                                         @csrf
                                         @method('get')
-                                        <button onclick="confirm('Are you sure you want to delete?')" id="deleteBtn" value="delete">Delete</button>
+                                        <button onclick="return confirm('Are you sure you want to delete?')" id="deleteBtn" value="delete">Delete</button>
                                         @csrf
                                     </form>
                                 <buttons>
