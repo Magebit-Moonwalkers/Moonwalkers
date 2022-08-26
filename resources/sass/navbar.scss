@@ -82,6 +82,10 @@
             &:nth-last-of-type(1) {
                 padding-right: 0;
             }
+            transition: 300ms;
+            &:hover {
+                transform: translateY(-3px);
+            }
         }
 
         #search-form {
