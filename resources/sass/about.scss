@@ -1,16 +1,37 @@
-.content-wrapper.about {
+.content-wrapper.about-page {
     height: auto;
-    padding: 64px 0;
-    .images {
+    .banner {
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         flex-direction: row;
 
         img {
-            width: 350px;
-            height: 330px;
-            border-radius: 30%;
+            width: 100%;
+            border-radius: 100px;
+        }
+    }
+    .credits {
+        float: right;
+        margin: 5px 0;
+        margin-right: 100px;
+        font-size: smaller;
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-style: italic;
+        }
+    }
+    .about-us {
+        padding: 46px 0;
+    
+        h2 {
+            font-size: 40px;
+            margin: 0;
+        }
+        p {
+            font-size: larger;
+            margin-bottom: 0;
         }
     }
 }
