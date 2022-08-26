@@ -31,15 +31,17 @@
             </div>
             <p class="price">{{ $product->price }} €</p>
 
-            <form action="">
+            <div class="form">
                 <label for="quantity">Quantity:</label>
                 <br>
                 <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ $product->quantity }}">
                 <div class="buttons">
-                    <button type="button" class="add-to-cart">Add to cart</button>
-                    <button type="button" class="buy">Buy it now</button>
+                    <div class="add-to-cart">
+                        <a href="{{ route('cart.store', ['id' => $product->product_id]) }}">Add to cart</a>
+                    </div>
+                    <div class="buy">Buy it now</div>
                 </div>
-            </form>
+            </div>
 
             <div class="attributes">
                 <div class="technical-info">Specification </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -14,20 +15,53 @@ class CartController extends Controller
     }
 
 
-    public function addToCart(Request $request)
+    public function addToCart($id)
     {
-        \Cart::add([
-            'id' => $request->id,
-            'name' => $request->name,
-            'price' => $request->price,
-            'quantity' => $request->quantity,
-            'attributes' => array(
-                'image' => $request->image,
-            )
-        ]);
-        session()->flash('success', 'Product is Added to Cart Successfully !');
+        $product = DB::table('products')->where('product_id', $id)->first();
+        $image = DB::table('images')->where('product_id', $id)->first();
+        $cart = session()->get('cart');
 
-        return redirect()->route('cart.list');
+        // if cart is empty then this the first product
+        if(!$cart) {
+            $cart = [
+                    $id => [
+                        "name" => $product->name,
+                        "quantity" => 1,
+                        "price" => $product->price,
+                        "photo" => $image->src
+                    ]
+            ];
+            session()->put('cart', $cart);
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+
+        // if cart not empty then check if this product exist then increment quantity
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+            session()->put('cart', $cart);
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+
+        // if item not exist in cart then add to cart with quantity = 1
+        $cart[$id] = [
+            "name" => $product->name,
+            "quantity" => 1,
+            "price" => $product->price,
+            "photo" => $image->src
+        ];
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+
+        // \Cart::add([
+        //     'id' => $request->id,
+        //     'name' => $request->name,
+        //     'price' => $request->price,
+        //     'quantity' => $request->quantity,
+        //     'attributes' => array(
+        //         'image' => $request->image,
+        //     )
+        // ]);
+        // session()->flash('success', 'Product is Added to Cart Successfully !');
     }
 
     public function updateCart(Request $request)

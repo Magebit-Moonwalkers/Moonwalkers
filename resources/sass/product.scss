@@ -647,7 +647,7 @@ body {
         font-weight: bold;
     }
 
-    form {
+    .form {
         margin: 0;
 
         input {
@@ -659,17 +659,27 @@ body {
         .buttons {
             margin-top: 40px;
 
-            button {
+            div {
                 height: 80px;
+                line-height: 80px;
                 width: 80%;
                 font-size: 20px;
                 margin-bottom: 10px;
                 background: transparent;
+                text-align: center;
+
+                a {
+                    text-decoration: none;
+                }
             }
 
             .add-to-cart {
                 border: 2px solid #00ccff;
                 color: #00ccff;
+
+                :visited {
+                    color: #00ccff;  
+                }
             }
 
             .buy {
