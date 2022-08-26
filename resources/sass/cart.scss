@@ -12,3 +12,23 @@
 .content-wrapper.cart-page {
     height: auto;
 }
+
+.left-wrapper {
+    .logo {
+        text-decoration: none;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+
+h1 {
+    margin: 30px;
+    margin-left: 0;
+}
+
+.update-cart a, .remove-from-cart a {
+    color: white;
+}
