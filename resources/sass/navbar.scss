@@ -43,6 +43,10 @@
                 padding: 10px;
                 color: #fff;
                 text-decoration: none;
+                transition: 300ms;
+                &:hover {
+                    transform: translateY(-3px);
+                }
             }
         }
     }
@@ -94,7 +98,7 @@
                 padding: 0 15%;
                 color: #fff;
                 font-size: small;
-                transition: width 2s;
+                transition: width 1.5s;
     
                 &:focus {
                     width: 350px;
@@ -115,32 +119,45 @@
             text-decoration: none;
             color: rgb(75, 175, 235);
             padding: 10px;
+            transition: 300ms;
+            &:hover {
+                transform: translateY(-3px);
+            }
         }
 
         .user-name-link {
             text-decoration: none;
             color: #fff;
             padding: 10px;
+            transition: 300ms;
+            &:hover {
+                transform: translateY(-3px);
+            }
         }
 
         .logout-btn {
             color: rgb(255, 0, 0);
             text-decoration: none;
             padding: 10px 0 10px 10px;
+            transition: 300ms;
+            &:hover {
+                transform: translateY(-3px);
+            }
         }
     }
 }
 
 .dropdown-products {
         height: 100%;
+        transition: 300ms;
+        &:hover {
+            transform: translateY(-3px);
+        }
 
     a {
         color: white;
         text-decoration: none;
-
-        :hover {
-            background-color: aqua;
-        }
+        transition: 300ms;
     }
 }
 
@@ -165,6 +182,7 @@
 
         &:hover {
             background-color: rgba(125, 71, 150, 0.8);
+            transform: translateY(-3px);
         }
     }
   }

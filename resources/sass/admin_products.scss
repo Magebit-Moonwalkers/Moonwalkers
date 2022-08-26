@@ -43,4 +43,8 @@
 #deleteBtn {
     color: red;
     cursor: pointer;
+    transition: 200ms;
+    &:hover {
+        transform: scale(1.1);
+    }
 }

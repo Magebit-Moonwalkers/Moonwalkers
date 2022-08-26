@@ -27,6 +27,10 @@
     align-items: center;
     border-radius: 5px;
     overflow: hidden;
+    transition: 500ms;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .border-animation::before {
