@@ -40,6 +40,12 @@
         justify-content: center;
         align-items: center;
     }
+    &.payment-page {
+        height: calc(100vh - 294px - 70px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .form-card{
@@ -202,4 +208,8 @@
             height: 20px;
         }
     }
+}
+
+.invalid-feedback {
+    color: rgb(255, 100, 80);
 }

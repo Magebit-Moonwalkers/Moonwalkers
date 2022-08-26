@@ -2,8 +2,10 @@
 
 @section('content')
 
+@vite(['resources/sass/form.scss'])
+
 <div class="content">
-    <div class="content-wrapper">
+    <div class="content-wrapper payment-page">
         <div class="form-card">
             <div class="card-header">{{ __('Payment') }}</div>
             <div class="card-body">
@@ -24,7 +26,9 @@
                         @endif
                     </div>
                     <input type="hidden" name="checkoutId" value={{$checkoutId}}>
-                    <button type="submit">Finish</button>
+                    <div class="btn-wrap">
+                        <button class="btn-primary" type="submit">Finish</button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -5,7 +5,7 @@
 @vite(['resources/sass/form.scss'])
 
 <div class="content">
-    <div class="content-wrapper">
+    <div class="content-wrapper reset-page">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
