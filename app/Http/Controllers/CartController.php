@@ -2,29 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
     public function cartList()
     {
-        $cartItems = \Cart::getContent();
-        // dd($cartItems);
-        return view('cart', compact('cartItems'));
+        $cartItems = DB::table('cart')->join('products', 'products.product_id', 'cart.product_id')->where('user_id', auth()->user()->id)->get();
+
+        return view('cart')->with(compact('cartItems'));
     }
 
 
     public function addToCart(Request $request)
     {
-        \Cart::add([
-            'id' => $request->id,
-            'name' => $request->name,
-            'price' => $request->price,
-            'quantity' => $request->quantity,
-            'attributes' => array(
-                'image' => $request->image,
-            )
-        ]);
+        $cart = new Cart();
+        $cart->product_id = $request->product_id;
+        $cart->user_id = $request->user_id;
+        $cart->item_quantity = $request->quantity;
+        $cart->save();
         session()->flash('success', 'Product is Added to Cart Successfully !');
 
         return redirect()->route('cart.list');
@@ -32,15 +30,8 @@ class CartController extends Controller
 
     public function updateCart(Request $request)
     {
-        \Cart::update(
-            $request->id,
-            [
-                'quantity' => [
-                    'relative' => false,
-                    'value' => $request->quantity
-                ],
-            ]
-        );
+        DB::table('cart')->where('cart_id',$request->cart_id)
+        ->where('product_id',$request->product_id)->update(['item_quantity'=> $request->item_quantity]);
 
         session()->flash('success', 'Item Cart is Updated Successfully !');
 
@@ -49,18 +40,21 @@ class CartController extends Controller
 
     public function removeCart(Request $request)
     {
-        \Cart::remove($request->id);
+        DB::table('cart')->where('cart_id',$request->cart_id)->where('product_id',$request->product_id)->delete();
+
         session()->flash('success', 'Item Cart Remove Successfully !');
 
         return redirect()->route('cart.list');
     }
 
-    public function clearAllCart()
+    static function getTotal()
     {
-        \Cart::clear();
-
-        session()->flash('success', 'All Item Cart Clear Successfully !');
-
-        return redirect()->route('cart.list');
+        $total = 0;
+        $items = DB::table('cart')->join('products', 'products.product_id', 'cart.product_id')->where('user_id',auth()->user()->id)->get();
+        
+        foreach ($items as $item) {
+            $total += $item->price;
+        }
+        return $total;
     }
 }
