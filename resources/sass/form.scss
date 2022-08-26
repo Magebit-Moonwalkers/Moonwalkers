@@ -60,7 +60,7 @@
         form {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 8px;
             font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
             margin-block-end: 0;
         }
@@ -103,6 +103,7 @@
         .user-details {
             display: flex;
             justify-content: space-between;
+            gap: 20px;
         }
         textarea {
             box-sizing: border-box;

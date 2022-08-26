@@ -91,12 +91,6 @@ document.getElementById('category').addEventListener("change", function (event) 
     addAttributesToHTML(event.target.value);
 });
 
-document.getElementById('category').addEventListener("load", function (event) {
-    // console.log(event.target.value);
-    // addAttributesToHTML(event.target.value);
-    console.log(123123);
-});
-
 function addAttributesToHTML(e) {
     let parent = document.getElementById('attributes');
     while (parent.firstChild) {
