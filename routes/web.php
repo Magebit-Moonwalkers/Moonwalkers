@@ -96,7 +96,10 @@ Route::get('product/{id}',[ProductController::class, 'showById'])->name('product
 
 Route::get('/checkout', function () {
     return view('billingAddress');
-});
+})->name('checkout-start');
 
 Route::post('checkout',[CheckoutController::class, 'saveBillingAddress'])->name('continue-checkout');
 
+Route::post('payment',[CheckoutController::class, 'saveShippingAddress'])->name('payment');
+
+Route::post('home',[CheckoutController::class, 'saveOrder'])->name('finish-checkout');

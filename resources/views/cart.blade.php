@@ -68,7 +68,7 @@
             <?php use App\Http\Controllers\CartController; ?>
             Total: {{ CartController::getTotal() }} 
           </div>
-          <form>
+          <form action="{{ route('checkout-start') }}">
             <button>Proceed to Checkout</button>
           </form>
         </div>

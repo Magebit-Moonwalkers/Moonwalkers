@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('product_id');
             $table->string('product_quantity');
             $table->string('user_id');
+            $table->string('status')->default("Order placed");
             $table->timestamps();
         });
     }

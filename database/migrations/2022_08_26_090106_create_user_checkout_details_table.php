@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('shipping_state')->nullable();
             $table->string('shipping_zip')->nullable();
             $table->string('order_id')->nullable();
+            $table->string('payment_method')->nullable();
             $table->timestamps();
         });
     }
