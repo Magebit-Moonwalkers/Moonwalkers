@@ -1,4 +1,5 @@
 .content-wrapper.about-page {
+    margin-top: 40px;
     height: auto;
     .banner {
         width: 100%;
@@ -23,6 +24,9 @@
         }
     }
     .about-us {
+        width: 80%;
+        margin: auto;
+        height: 20vh;
         padding: 46px 0;
     
         h2 {
