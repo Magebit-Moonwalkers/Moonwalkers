@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Checkout;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,14 +25,50 @@ class CheckoutController extends Controller
         $checkoutId = $this->getLastCheckoutId();
 
         if ($request->if_shipping_same) {
-            return view("order")->with(compact('checkoutId'));
+            return view("payment")->with(compact('checkoutId'));
         } else {
             return view("shippingAddress")->with(compact('checkoutId'));
         }
     }
 
+    public function saveShippingAddress(Request $request)
+    {
+        $checkoutId = $request->checkoutId;
+        DB::table('user_checkout_details')->where('id',$request->checkoutId)->update([
+            'shipping_address'=> $request->shipping_address,
+            'shipping_city'=> $request->shipping_address,
+            'shipping_state'=> $request->shipping_address,
+            'shipping_zip'=> $request->shipping_address,
+        ]);
+
+        return view("payment")->with(compact('checkoutId'));
+    }
+
+    public function saveOrder(Request $request)
+    {
+        $checkoutId = $request->checkoutId;
+        DB::table('user_checkout_details')->where('id',$request->checkoutId)->update([
+            'payment_method'=> $request->payment_method
+        ]);
+
+        if(auth()->user())
+        {
+            $orderedItems = DB::table('cart')->where('user_id',auth()->user()->id)->get();
+            foreach ($orderedItems as $item) {
+                $order = new Order();
+                $order->order_id = $checkoutId;
+                $order->product_id = $item->product_id;
+                $order->product_quantity = $item->item_quantity;
+                $order->user_id = auth()->user()->id;
+                $order->save();
+            }
+            DB::table('cart')->where('user_id',auth()->user()->id)->delete();
+        }
+        return view("home");
+    }
+
     public function getLastCheckoutId() { 
-        $lastProduct = DB::table('user_checkout_details')->latest('id')->first();
-        return $lastProduct ? $lastProduct->product_id : 0;
+        $last = DB::table('user_checkout_details')->latest('id')->first();
+        return $last ? $last->id : 0;
     }
 }

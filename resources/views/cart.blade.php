@@ -71,7 +71,7 @@
               <?php use App\Http\Controllers\CartController; ?>
               Total price: {{ CartController::getTotal() }} €
             </div>
-            <form class="button-wrap">
+            <form action="{{ route('checkout-start') }}" class="button-wrap">
               <button class="checkout-button">Proceed to Checkout</button>
             </form>
           </div>
