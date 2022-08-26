@@ -32,7 +32,7 @@
               <?php $cart_id = $item->cart_id;?>
               <tr>
                 <td>
-                  <a href="#">
+                  <a href="{{ route('search-product', ['id' => $item->product_id]) }}">
                     <p class="">{{ $item->name }}</p>
                   </a>
                 </td>
