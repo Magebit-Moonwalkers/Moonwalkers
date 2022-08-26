@@ -4,12 +4,11 @@
 
 @vite(['resources/sass/about.scss'])
 <div class="content">
-    <div class="content-wrapper about">
-        <div class="images">
-            <img src="https://www.ieskaties.lv/image/cache/catalog/ext4oc/2592038772-3179022424-3392-468x468.jpg" alt="">
-            <img src="https://www.ieskaties.lv/image/cache/catalog/ext4oc/2592038772-3179022424-3392-468x468.jpg" alt="">
-            <img src="https://www.ieskaties.lv/image/cache/catalog/ext4oc/2592038772-3179022424-3392-468x468.jpg" alt="">
+    <div class="content-wrapper about-page">
+        <div class="banner">
+            <img src="/images/backgrounds/about-banner1.jpg" alt="oops">
         </div>
+        <p class="credits"><a href="https://www.freepik.com/free-vector/alien-planet-landscape-cosmic-background-deserted-coastline-with-mountains-view-glowing-cleft-stars-shining-spheres-space-extraterrestrial-pc-game-backdrop-cartoon-vector-illustration_20700727.htm?query=universe banner" target="_blank">Image by upklyak</a> on Freepik</p>
         <div class="about-us">
             <h2>About</h2>
             <p>
