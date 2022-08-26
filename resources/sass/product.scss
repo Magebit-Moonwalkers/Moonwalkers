@@ -647,7 +647,7 @@ body {
         font-weight: bold;
     }
 
-    .form {
+    form {
         margin: 0;
 
         input {
@@ -660,11 +660,7 @@ body {
             margin-top: 40px;
             transition: all 0.4s;
 
-            a {
-                text-decoration: none;
-            }
-
-            div {
+            button {
                 height: 80px;
                 line-height: 80px;
                 width: 80%;
@@ -678,6 +674,19 @@ body {
             .add-to-cart {
                 border: 2px solid #00ccff;
                 color: #00ccff;
+                
+                a{
+                    height: 80px;
+                    width: 100%;
+                }
+
+                :visited {
+                    color: #00ccff;  
+
+                    &:hover {
+                        color:white;
+                    }
+                }
 
                 &:hover {
                     background: linear-gradient(45deg, #00ccff 15%, #d400d4);

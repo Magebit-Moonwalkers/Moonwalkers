@@ -70,6 +70,9 @@
             <?php use App\Http\Controllers\CartController; ?>
             Total: {{ CartController::getTotal() }} €
           </div>
+          <form>
+            <button>Proceed to Checkout</button>
+          </form>
         </div>
       </div>
     </div>
