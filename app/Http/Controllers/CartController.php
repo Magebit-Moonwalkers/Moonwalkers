@@ -51,7 +51,7 @@ class CartController extends Controller
         $items = DB::table('cart')->join('products', 'products.product_id', 'cart.product_id')->where('user_id',auth()->user()->id)->get();
 
         foreach ($items as $item) {
-            $total += $item->price;
+            $total += $item->price * $item->item_quantity;
         }
         return $total;
     }
