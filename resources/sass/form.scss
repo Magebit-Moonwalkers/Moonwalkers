@@ -34,6 +34,12 @@
         justify-content: center;
         align-items: center;
     }
+    &.checkout-page {
+        height: calc(100vh - 294px - 70px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .form-card{
@@ -52,6 +58,17 @@
 
     .card-body {
         width: 100%;
+
+        form > *:not(h3) {
+            position: relative;
+            svg {
+                position: absolute;
+                left: 17px;
+                top: 27px;
+                width: 20px;
+                height: 20px;
+            }
+        }
 
         .form-group {
             display: flex;
@@ -167,6 +184,19 @@
             .form-group > * {
                 margin: 2px 0;
             }
+        }
+    }
+}
+
+.checkout-page {
+    .card-body form > *:not(h3) {
+        position: relative;
+        svg {
+            position: absolute;
+            left: 17px;
+            top: 27px;
+            width: 20px;
+            height: 20px;
         }
     }
 }
