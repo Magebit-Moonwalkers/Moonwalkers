@@ -42,7 +42,7 @@
                 @if(auth()->user())
                     <button type="submit" class="add-to-cart">Add to cart</button>
                 @endif
-                    <button type="button" class="buy">Buy it now</button>
+                    <button type="button" onclick="window.location='{{ route('checkout') }}'" class="buy">Buy it now</button>
                 </div>
                 @csrf
             </form>
