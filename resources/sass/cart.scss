@@ -1,34 +1,28 @@
-@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-
-.cart-title {
-    padding: 20px 0;
-
-    h1 {
-        font-size: 40px;
-    }
-}
-
-.content-wrapper.cart-page {
+.content-wrapper.cart {
     height: auto;
+    padding: 64px 0;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.left-wrapper {
-    .logo {
-        text-decoration: none;
-
-        &:hover {
-            color: white;
+table{
+    width: 100%;
+    thead {
+        border-radius: 3px;
+        padding: 25px 30px;
+        background-color: #51147481;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        height: 50px;
+    }
+    tbody {
+        tr {
+            td {
+                border: 2px solid #ed34ed7e;
+                box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+            }
         }
     }
-}
-
-
-h1 {
-    margin: 30px;
-    margin-left: 0;
-}
-
-.update-cart a, .remove-from-cart a {
-    color: white;
-}
+} 

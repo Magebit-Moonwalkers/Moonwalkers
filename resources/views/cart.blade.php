@@ -4,55 +4,78 @@
 
 @section('content')
 
-<div class="content">
-  <div class="content-wrapper cart-page">
-    <div class="cart-title">
-        <h1>Your cart</h1>
-    </div>
-  <div class="cart-contents">
-    <table>
-      <tr>
-        <th style="width:50%">Product</th>
-        <th style="width:10%">Price</th>
-        <th style="width:8%">Quantity</th>
-        <th style="width:22%" class="text-center">Subtotal</th>
-        <th style="width:10%"></th>
-      </tr>
-
-      <?php $total = 0 ?>
-        @if(session('cart'))
-            @foreach(session('cart') as $id => $details)
-                <?php $total += $details['price'] * $details['quantity'] ?>
-                <tr>
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
-                            <div class="col-sm-9">
-                                <h4 class="nomargin">{{ $details['name'] }}</h4>
-                            </div>
-                        </div>
-                    </td>
-                    <td data-th="Price">${{ $details['price'] }}</td>
-                    <td data-th="Quantity">
-                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" min="1" />
-                    </td>
-                    <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
-                    <td class="actions" data-th="">
-                        <button id="quantity-value" class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fa fa-refresh"></i></button>
-                        <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><a href="{{ route('cart.remove', ['id' => $id]) }}"><i class="fa fa-trash-o"></i></a></button>
-                    </td>
-                </tr>
-            @endforeach
+<main class="content">
+<div class="content-wrapper">
+    <div class="">
+      <div class="">
+        @if ($message = Session::get('success'))
+        <div class="">
+          <p class="">{{ $message }}</p>
+        </div>
         @endif
-        </tbody>
-    </table>
-    </table>
+        <h3 class="">Cart List</h3>
+        <div class="">
+          <table class="" cellspacing="2">
+
+            <thead>
+              <tr class="">
+                <th class="">Name</th>
+                <th class="">Quantity</th>
+                <th class="">Price</th>
+                <th class="">Remove</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            <?php $cart_id; ?>
+              @foreach ($cartItems as $item)
+              <?php $cart_id = $item->cart_id;?>
+              <tr>
+                <td>
+                  <a href="#">
+                    <p class="">{{ $item->name }}</p>
+                  </a>
+                </td>
+                <td class="">
+                  <form action="{{ route('cart.update') }}" method="POST">
+                    @csrf
+                    <input type="hidden" value="{{ $item->product_id }}" name="product_id">
+                    <input type="hidden" value="{{ $item->cart_id }}" name="cart_id">
+                    <input type="number" name="item_quantity" value="{{ $item->item_quantity }}" min="1" max="{{ $item->quantity }}" />
+                    <button type="submit">update</button>
+                  </form>
+                </td>
+                <td class="">
+                  <span class="">
+                    ${{ $item->price }}
+                  </span>
+                </td>
+                <td class="">
+                  <form action="{{ route('cart.remove') }}" method="POST">
+                    @csrf
+                    <input type="hidden" value="{{ $item->product_id }}" name="product_id">
+                    <input type="hidden" value="{{ $item->cart_id }}" name="cart_id">
+                    <button class="">x</button>
+                  </form>
+
+                </td>
+              </tr>
+              @endforeach
+
+            </tbody>
+          </table>
+          <div>
+            <?php use App\Http\Controllers\CartController; ?>
+            Total: {{ CartController::getTotal() }} 
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
+</main>
 
 @if(!auth()->user() || auth()->user()->role != "administrator")
-    @include('layouts.footer')
+@include('layouts.footer')
 @endif
 
-@endsection
+@endsection 

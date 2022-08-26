@@ -84,10 +84,10 @@ Route::post('/admin/add-product',[ProductController::class, 'store'])->name('adm
 
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
-Route::get('product/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('product/add-to-cart/', [CartController::class, 'addToCart'])->name('cart.store');
 
-Route::get('update-cart', [CartController::class, 'update'])->name('cart.update');
-Route::get('remove-from-cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove-from-cart/', [CartController::class, 'removeCart'])->name('cart.remove');
 
 Route::post('clear/', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
