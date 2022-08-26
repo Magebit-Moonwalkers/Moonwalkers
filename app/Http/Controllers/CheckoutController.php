@@ -11,13 +11,24 @@ class CheckoutController extends Controller
 {
     public function saveBillingAddress(Request $request)
     {
+        $rules = array (
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'billing_address' => 'required',
+            'billing_city' => 'required',
+            'billing_state' => 'required',
+            'billing_zip' => 'required',
+        );
+
+        $this->validate($request, $rules);
+
         $checkoutDetails = new Checkout();
-        $checkoutDetails->name = $request->name;
-        $checkoutDetails->email = $request->email;
-        $checkoutDetails->billing_address = $request->billing_address;
-        $checkoutDetails->billing_city = $request->billing_city;
-        $checkoutDetails->billing_state = $request->billing_state;
-        $checkoutDetails->billing_zip = $request->billing_zip;
+        $checkoutDetails->name = (string)$request->name;
+        $checkoutDetails->email = (string)$request->email;
+        $checkoutDetails->billing_address = (string)$request->billing_address;
+        $checkoutDetails->billing_city = (string)$request->billing_city;
+        $checkoutDetails->billing_state = (string)$request->billing_state;
+        $checkoutDetails->billing_zip = (string)$request->billing_zip;
         $checkoutDetails->if_shipping_same = $request->if_shipping_same ? 1 : 0 ;
 
         $checkoutDetails->save();
@@ -33,6 +44,15 @@ class CheckoutController extends Controller
 
     public function saveShippingAddress(Request $request)
     {
+        $rules = array (
+            'shipping_city' => 'required',
+            'shipping_city' => 'required',
+            'shipping_state' => 'required',
+            'shipping_zip' => 'required',
+        );
+
+        $this->validate($request, $rules);
+
         $checkoutId = $request->checkoutId;
         DB::table('user_checkout_details')->where('id',$request->checkoutId)->update([
             'shipping_address'=> $request->shipping_address,
