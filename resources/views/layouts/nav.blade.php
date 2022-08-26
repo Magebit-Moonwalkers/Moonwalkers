@@ -9,7 +9,7 @@
                 </a>
                 <div class="buttons-wrapper">
                     <div class="dropdown-products">
-                        <a class="dropdown-button" href="{{ url('/products') }}">Products</a>
+                        <a class="dropdown-button nav-left-links" href="{{ url('/products') }}">Products</a>
                         <div class="dropdown-products-content">
                             <a href="{{ route('products.in.category', ['category' => 'Telescopes']) }}">Telescopes</a>
                             <a href="{{ route('products.in.category', ['category' => 'Mountings']) }}">Mountings</a>
@@ -20,8 +20,7 @@
                         </div>
                     </div>
 
-                    <div class="nav2">nav2</div>
-                    <div class="nav3">nav3</div>
+                    <a class="nav-left-links" href="/about">About</a>
                 </div>
             </div>
             <div class="right-wrapper">

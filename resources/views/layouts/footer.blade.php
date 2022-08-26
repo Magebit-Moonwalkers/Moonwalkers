@@ -6,8 +6,7 @@
             <div class="quick-links">
                 <h4>Quick links</h4>
                 <a href="{{ url('/products') }}">Products</a>
-                <a href="/smth">smth2</a>
-                <a href="/smth">smth3</a>
+                <a href="/cart" class="cart-btn">Cart</a>
             </div>
             <div class="info">
                 <h4>Info</h4>
