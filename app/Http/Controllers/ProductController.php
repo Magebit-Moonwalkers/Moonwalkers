@@ -133,7 +133,8 @@ class ProductController extends Controller
 
     public function showAllProductsInCategory($category) {
         $category_id = DB::table('categories')->where('name', $category)->value('category_id');
-        $products = DB::table('products')->where('category_id', $category_id)->get();
+        if ($category_id) {
+            $products = DB::table('products')->where('category_id', $category_id)->get();
         
         $images = array();
         foreach($products as $product) {
@@ -142,6 +143,8 @@ class ProductController extends Controller
         }
 
         return view('products-in-category', ['products' => $products, 'category' => $category, 'images' => $images]);
+        }
+        return view('/errors/404');
     }
 
     public function showProduct($category = null, $id) {
