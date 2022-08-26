@@ -15,7 +15,6 @@ $fields = ["name", "SKU", "price", "description"];
                 <form id="add_product_form" method="post" action="{{ route('admin.store') }}" enctype="multipart/form-data">
                     @csrf
                     @method('post')
-                    @csrf
                     <div class="form-group">
                         <label for="category">Category</label>
                         <select class="form-select" id="category" name="category">
