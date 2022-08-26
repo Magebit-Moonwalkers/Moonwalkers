@@ -51,6 +51,7 @@
                             </form>
                             @if(!auth()->user() || auth()->user()->role != "administrator")
                                 <a href="/cart" class="cart-btn">Cart</a>
+                                <a href="/orders" class="cart-btn"> Orders</a>
                             @endif
                         </div>
 
