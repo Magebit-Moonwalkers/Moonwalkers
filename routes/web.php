@@ -21,7 +21,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     $categories = DB::table('categories')->get();
-    return view('welcome', ['categories' => $categories]);
+    $products = DB::table('products')->get();
+    $images = DB::table('images')->get();
+    return view('welcome', ['categories' => $categories, 'products' => $products, 'images' => $images]);
 });
 Auth::routes();
 

@@ -3,53 +3,53 @@
 @section('content')
 
 @vite(['resources/sass/hero.scss', 'resources/js/tracker.js'])
+@vite(['resources/sass/products_in_category.scss'])
 
 <div class="hero-image">
-  <div class="hero-text-container">
-    <div class="hero-text">
-      <h1>Are you ready to explore the Universe?</h1>
-      <p>Best tools for exploring</p>
-      <a href="{{ url('/products') }}">Take a look...</a>
-    </div>
-  </div>
+	<div class="hero-text-container">
+		<div class="hero-text">
+			<h1>Are you ready to explore the Universe?</h1>
+			<p>Best tools for exploring</p>
+			<a href="#products">Take a look...</a>
+		</div>
+	</div>
 
-  <div class="tracker">
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
-<polygon style="fill:#127C8D;" points="165.168,319.918 125.849,359.236 156.128,390.581 195.979,350.729 "/>
-<path style="fill:#4BBCD6;" d="M421.232,105.922l-15.153-15.153c-2.884-2.884-8.566-5.529-12.628-5.877l-39.827-3.427l76.912,76.912
-	l-3.427-39.827C426.76,114.488,424.115,108.806,421.232,105.922z"/>
-<rect x="345.589" y="84.797" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 734.8644 -26.0258)" style="fill:#127C8D;" width="54.468" height="108.772"/>
-<rect x="193.961" y="120.615" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 271.0738 611.8082)" style="fill:#8FD9C2;" width="136.572" height="258.296"/>
-<rect x="344.135" y="311.736" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 434.2726 840.1118)" style="fill:#127C8D;" width="93.989" height="36.758"/>
-<rect x="318.15" y="337.728" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 371.5353 866.1094)" style="fill:#053847;" width="93.989" height="36.758"/>
-<rect x="413.222" y="375.577" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 1035.5917 416.187)" style="fill:#127C8D;" width="36.758" height="93.989"/>
-<g>
-	
-		<rect x="439.235" y="349.583" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -146.3909 439.7371)" style="fill:#4BBCD6;" width="36.758" height="93.989"/>
-	
-		<rect x="358.632" y="430.193" transform="matrix(0.7071 0.7071 -0.7071 0.7071 435.9937 -155.4377)" style="fill:#4BBCD6;" width="93.989" height="36.758"/>
-</g>
-<rect x="320.759" y="335.103" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 849.1291 412.4735)" style="fill:#127C8D;" width="36.758" height="93.989"/>
-<rect x="137.511" y="99.86" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 369.9621 140.465)" style="fill:#053847;" width="36.758" height="93.989"/>
-<rect x="68.423" y="36.016" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 158.5676 174.4707)" style="fill:#4BBCD6;" width="93.989" height="36.758"/>
-<g>
-	
-		<rect x="163.514" y="73.868" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -32.1878 164.0173)" style="fill:#127C8D;" width="36.758" height="93.989"/>
-	
-		<rect x="42.435" y="62.01" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 95.8226 200.4685)" style="fill:#127C8D;" width="93.989" height="36.758"/>
-	
-		<rect x="82.915" y="154.469" transform="matrix(0.7071 0.7071 -0.7071 0.7071 160.2717 -41.2337)" style="fill:#127C8D;" width="93.989" height="36.758"/>
-</g>
-<g>
-	
-		<rect x="45.051" y="59.383" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 183.5016 136.7462)" style="fill:#4BBCD6;" width="36.758" height="93.989"/>
-	<path style="fill:#4BBCD6;" d="M8.171,320.213L191.788,503.83c8.665-49.175-5.987-101.655-43.974-139.643
-		S57.346,311.548,8.171,320.213z"/>
-</g>
-<g>
-	<path style="fill:#3E0412;" d="M509.607,411.042l-132.929-132.93c-3.191-3.191-8.364-3.191-11.554,0l-33.211,33.211l-11.555-11.555
+	<div class="tracker">
+		<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+			<polygon style="fill:#127C8D;" points="165.168,319.918 125.849,359.236 156.128,390.581 195.979,350.729 " />
+			<path style="fill:#4BBCD6;" d="M421.232,105.922l-15.153-15.153c-2.884-2.884-8.566-5.529-12.628-5.877l-39.827-3.427l76.912,76.912
+	l-3.427-39.827C426.76,114.488,424.115,108.806,421.232,105.922z" />
+			<rect x="345.589" y="84.797" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 734.8644 -26.0258)" style="fill:#127C8D;" width="54.468" height="108.772" />
+			<rect x="193.961" y="120.615" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 271.0738 611.8082)" style="fill:#8FD9C2;" width="136.572" height="258.296" />
+			<rect x="344.135" y="311.736" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 434.2726 840.1118)" style="fill:#127C8D;" width="93.989" height="36.758" />
+			<rect x="318.15" y="337.728" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 371.5353 866.1094)" style="fill:#053847;" width="93.989" height="36.758" />
+			<rect x="413.222" y="375.577" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 1035.5917 416.187)" style="fill:#127C8D;" width="36.758" height="93.989" />
+			<g>
+
+				<rect x="439.235" y="349.583" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -146.3909 439.7371)" style="fill:#4BBCD6;" width="36.758" height="93.989" />
+
+				<rect x="358.632" y="430.193" transform="matrix(0.7071 0.7071 -0.7071 0.7071 435.9937 -155.4377)" style="fill:#4BBCD6;" width="93.989" height="36.758" />
+			</g>
+			<rect x="320.759" y="335.103" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 849.1291 412.4735)" style="fill:#127C8D;" width="36.758" height="93.989" />
+			<rect x="137.511" y="99.86" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 369.9621 140.465)" style="fill:#053847;" width="36.758" height="93.989" />
+			<rect x="68.423" y="36.016" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 158.5676 174.4707)" style="fill:#4BBCD6;" width="93.989" height="36.758" />
+			<g>
+
+				<rect x="163.514" y="73.868" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -32.1878 164.0173)" style="fill:#127C8D;" width="36.758" height="93.989" />
+
+				<rect x="42.435" y="62.01" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 95.8226 200.4685)" style="fill:#127C8D;" width="93.989" height="36.758" />
+
+				<rect x="82.915" y="154.469" transform="matrix(0.7071 0.7071 -0.7071 0.7071 160.2717 -41.2337)" style="fill:#127C8D;" width="93.989" height="36.758" />
+			</g>
+			<g>
+
+				<rect x="45.051" y="59.383" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 183.5016 136.7462)" style="fill:#4BBCD6;" width="36.758" height="93.989" />
+				<path style="fill:#4BBCD6;" d="M8.171,320.213L191.788,503.83c8.665-49.175-5.987-101.655-43.974-139.643
+		S57.346,311.548,8.171,320.213z" />
+			</g>
+			<g>
+				<path style="fill:#3E0412;" d="M509.607,411.042l-132.929-132.93c-3.191-3.191-8.364-3.191-11.554,0l-33.211,33.211l-11.555-11.555
 		l87.27-87.27c3.191-3.191,3.191-8.364,0-11.554l-4.051-4.051l32.737-32.738c1.705-1.705,2.57-4.075,2.363-6.477l-3.427-39.826
 		c-0.516-6-3.982-13.446-8.24-17.705l-15.154-15.155c-4.258-4.258-11.704-7.722-17.704-8.24l-39.827-3.427
 		c-0.066-0.005-0.133-0.002-0.199-0.007c-0.203-0.012-0.406-0.022-0.61-0.019c-0.107,0.001-0.211,0.01-0.317,0.015
@@ -86,41 +86,65 @@
 		c0.011-0.011,7.225-7.225,7.225-7.225l37.58,37.58c1.595,1.595,3.686,2.393,5.777,2.393s4.182-0.797,5.777-2.393
 		c3.191-3.191,3.191-8.364,0-11.554l-37.58-37.58l14.437-14.437l54.91,54.91l-66.422,66.422l-54.911-54.911L318.917,347.427z
 		 M451.847,457.249l-54.91-54.91l14.437-14.437l54.91,54.91L451.847,457.249z M425.855,483.241l-54.91-54.91l14.437-14.437
-		l54.91,54.91L425.855,483.241z M477.838,431.257l-54.91-54.91l14.437-14.437l54.91,54.91L477.838,431.257z"/>
-	<path style="fill:#3E0412;" d="M29.741,459.151c-3.191-3.191-8.364-3.191-11.554,0c-3.191,3.191-3.191,8.364,0,11.554
-		l23.109,23.109c1.595,1.595,3.686,2.393,5.777,2.393s4.182-0.797,5.777-2.393c3.191-3.191,3.191-8.364,0-11.554L29.741,459.151z"/>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-</svg>
-  </div>
+		l54.91,54.91L425.855,483.241z M477.838,431.257l-54.91-54.91l14.437-14.437l54.91,54.91L477.838,431.257z" />
+				<path style="fill:#3E0412;" d="M29.741,459.151c-3.191-3.191-8.364-3.191-11.554,0c-3.191,3.191-3.191,8.364,0,11.554
+		l23.109,23.109c1.595,1.595,3.686,2.393,5.777,2.393s4.182-0.797,5.777-2.393c3.191-3.191,3.191-8.364,0-11.554L29.741,459.151z" />
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+			<g>
+			</g>
+		</svg>
+	</div>
+</div>
+<div class="products content-wrapper" id="products">
+	<h1>Products</h1>
+	<div class="product-container">
+		@foreach($products as $product)
+
+		<div class="card">
+			<a href="{{ route('search-product', ['id' => $product->product_id]) }}">
+				@foreach($images as $image)
+				@if ($product->product_id == $image->product_id)
+				<img src="{{ $image->src }}" />
+				@break
+				@endif
+				@endforeach
+
+				<div class="info">
+					<h4>{{ $product->name }}</h4>
+					<price>{{ $product->price }} €</price>
+				</div>
+			</a>
+		</div>
+
+		@endforeach
+	</div>
 </div>
 @endsection

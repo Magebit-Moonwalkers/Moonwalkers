@@ -1,10 +1,10 @@
 // Hero Image from <a href='https://www.freepik.com/vectors/cartoon-space'>Cartoon space vector created by vectorpouch - www.freepik.com</a>
 
 .hero-image {
-    position: absolute;
+    position: relative;
     top: 0;
     margin: 0;
-    width: 100vw;
+    // width: 100vw;
     height: 100vh;
     background-image: url(./../../public/images/backgrounds/hero.jpg);
     background-size: cover;
@@ -68,4 +68,17 @@
             text-decoration: none;
         }
     }
+}
+
+.products {
+    position: relative;
+    .product-container{
+        margin: 0 auto;
+    }
+    h1 {
+        padding: 20px 0;
+    }
+}
+html {
+    scroll-behavior: smooth;
 }
