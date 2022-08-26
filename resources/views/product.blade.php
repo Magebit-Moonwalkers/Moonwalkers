@@ -31,16 +31,20 @@
             </div>
             <p class="price">{{ $product->price }} €</p>
 
-            <form class="form">
+            <form action="{{ route('cart.store') }}" enctype="multipart/form-data" method="post">
+                @csrf
+                @method('post')
                 <label for="quantity">Quantity:</label>
                 <br>
-                <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ $product->quantity }}">
+                <input type="number" id="quantity" name="quantity" min="1" max="{{ $product->quantity }}" value="1"  />
+                <input type="hidden" name="product_id" id="product_id" value={{$product->product_id}} >
+                @if(auth()->user())
                 <div class="buttons">
-                    
-                        <a href="{{ route('cart.store', ['id' => $product->product_id]) }}"><div class="add-to-cart">Add to cart</div></a>
-                    
-                    <div class="buy">Buy it now</div>
+                    <button type="submit" class="add-to-cart">Add to cart</button>
+                    <button type="button" class="buy">Buy it now</button>
                 </div>
+                @endif
+                @csrf
             </form>
 
             <div class="attributes">
