@@ -63,8 +63,10 @@ class CheckoutController extends Controller
                 $order->save();
             }
             DB::table('cart')->where('user_id',auth()->user()->id)->delete();
+            return view("home");
         }
-        return view("home");
+        
+        return redirect("/");
     }
 
     public function getLastCheckoutId() { 
