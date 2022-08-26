@@ -38,6 +38,20 @@ app.component('example-component', ExampleComponent);
 
 app.mount('#app');
 
+
+let checkbox = document.getElementById('if_shipping_same');
+
+checkbox.addEventListener("change", function() {
+    if(checkbox.checked) {
+        document.getElementById('billing-address-button').textContent = "Continue to Payment";
+        document.getElementById('billing-address-button').value = "toPayment";
+    }
+    else {
+        document.getElementById('billing-address-button').textContent = "Continue to Shipping Address";
+        document.getElementById('billing-address-button').value = "toShippingAddress";
+    }
+})
+
 let attributes = {
     "1": [
         { "textContent": "Optics type", "type": "text", "name": "optics_type" },
@@ -137,3 +151,5 @@ function addAttributesToHTML(e) {
 document.getElementById('deleteBtn').addEventListener("click", function() {
     confirm('Are you sure you want to delete?');
 })
+
+
