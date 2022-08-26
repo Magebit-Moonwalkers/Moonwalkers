@@ -1,10 +1,24 @@
-.content-wrapper.cart {
+.content-wrapper.cart-page {
     height: auto;
-    padding: 64px 0;
-    max-width: 600px;
+    padding: 24px 0;
+}
+
+.cart-title {
+    padding: 20px 0;
+
+    h3 {
+        font-size: 40px;
+        margin: 0;
+    }
+}
+
+.message {
     display: flex;
     justify-content: center;
-    align-items: center;
+
+    p {
+        margin: 0;
+    }
 }
 
 table{
@@ -19,9 +33,78 @@ table{
     }
     tbody {
         tr {
+            height: 50px;
             td {
                 border: 2px solid #ed34ed7e;
                 box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+
+                .buttons {
+                    transition: all 0.4s;
+                    margin-block-end: 0;
+                    height: 50px;
+                    box-sizing: border-box;
+
+                    .quantity-input {
+                        border: none;
+                        color: #00ccff;
+                        background: none;
+                        width: 50%;
+                        height: inherit;
+                        float: left;
+                        font-size: x-large;
+                        text-align: center;
+                        padding: 0 10px;
+                    }
+
+                    .update-btn {
+                        border: 2px solid #00ccff;
+                        color: #00ccff;
+                        background: none;
+                        width: 50%;
+                        height: inherit;
+                        float: right;
+        
+                        &:hover {
+                            background: linear-gradient(45deg, #00ccff 15%, #d400d4);
+                            color: #fff;
+                            cursor: pointer;
+                        }
+                    }
+        
+                    .delete-btn {
+                        border: 2px solid #ed34ed;
+                        color: #ed34ed;
+                        background: none;
+                        width: 100%;
+                        height: inherit;
+        
+                        &:hover {
+                            background: linear-gradient(45deg, #00ccff 15%, #d400d4);
+                            color: #fff;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .item-price {
+                    border: none;
+                    color: #fff;
+                    background: none;
+                    width: 100%;
+                    height: inherit;
+                    float: left;
+                    font-size: x-large;
+                    text-align: center;
+                }
+                .item-name {
+                    color: #fff;
+                    text-decoration: none;
+                    background: none;
+                    font-size: large;
+                    text-align: center;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
         }
     }

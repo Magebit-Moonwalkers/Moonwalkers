@@ -9,7 +9,7 @@
 
 
 <div class="content">
-    <div class="content-wrapper product">
+    <div class="content-wrapper product-page">
         <div class="left">
                 @foreach ($images as $image)
                     <img src="{{ $image->src }}" />
@@ -38,12 +38,12 @@
                 <br>
                 <input type="number" id="quantity" name="quantity" min="1" max="{{ $product->quantity }}" value="1"  />
                 <input type="hidden" name="product_id" id="product_id" value={{$product->product_id}} >
-                @if(auth()->user())
                 <div class="buttons">
+                @if(auth()->user())
                     <button type="submit" class="add-to-cart">Add to cart</button>
-                    <button type="button" class="buy">Buy it now</button>
-                </div>
                 @endif
+                    <button type="button" onclick="window.location='{{ route('checkout') }}'" class="buy">Buy it now</button>
+                </div>
                 @csrf
             </form>
 
