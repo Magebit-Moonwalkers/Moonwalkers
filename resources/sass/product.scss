@@ -660,6 +660,10 @@ body {
             margin-top: 40px;
             transition: all 0.4s;
 
+            a {
+                text-decoration: none;
+            }
+
             div {
                 height: 80px;
                 line-height: 80px;
@@ -669,22 +673,11 @@ body {
                 background: transparent;
                 text-align: center;
 
-                a {
-                    text-decoration: none;
-                }
             }
 
             .add-to-cart {
                 border: 2px solid #00ccff;
                 color: #00ccff;
-
-                :visited {
-                    color: #00ccff;  
-
-                    &:hover {
-                        color: #fff;
-                    }
-                }
 
                 &:hover {
                     background: linear-gradient(45deg, #00ccff 15%, #d400d4);
