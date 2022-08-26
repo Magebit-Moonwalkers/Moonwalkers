@@ -658,6 +658,7 @@ body {
 
         .buttons {
             margin-top: 40px;
+            transition: all 0.4s;
 
             button {
                 height: 80px;
@@ -670,11 +671,23 @@ body {
             .add-to-cart {
                 border: 2px solid #00ccff;
                 color: #00ccff;
+
+                &:hover {
+                    background: linear-gradient(45deg, #00ccff 15%, #d400d4);
+                    color: #fff;
+                    cursor: pointer;
+                }
             }
 
             .buy {
                 border: 2px solid #ed34ed;
                 color: #ed34ed;
+
+                &:hover {
+                    background: linear-gradient(45deg, #00ccff 15%, #d400d4);
+                    color: #fff;
+                    cursor: pointer;
+                }
             }
 
         }
