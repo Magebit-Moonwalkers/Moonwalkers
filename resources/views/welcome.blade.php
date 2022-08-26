@@ -14,7 +14,7 @@
 		</div>
 	</div>
 
-	<div class="tracker">
+	<div class="tracker shown">
 		<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
 			<polygon style="fill:#127C8D;" points="165.168,319.918 125.849,359.236 156.128,390.581 195.979,350.729 " />

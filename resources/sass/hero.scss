@@ -18,6 +18,11 @@
     z-index: 100;
     pointer-events: none;
     transition: all .15s;
+    visibility: visible;
+    
+    &.shown {
+        visibility: hidden;
+    }
     
     svg {
         width: 100%;
