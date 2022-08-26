@@ -5,8 +5,10 @@
 @section('content')
 
 <div class="content">
-  <div class="content-wrapper">
-  <h1>Your cart</h1>
+  <div class="content-wrapper cart-page">
+    <div class="cart-title">
+        <h1>Your cart</h1>
+    </div>
   <div class="cart-contents">
     <table>
       <tr>

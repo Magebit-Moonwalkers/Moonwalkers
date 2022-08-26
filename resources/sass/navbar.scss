@@ -39,8 +39,10 @@
             justify-content: space-between;
             width: auto;
 
-            div {
+            .nav-left-links {
                 padding: 10px;
+                color: #fff;
+                text-decoration: none;
             }
         }
     }
