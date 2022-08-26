@@ -48,7 +48,7 @@
                 </td>
                 <td class="">
                   <span class="">
-                    ${{ $item->price }}
+                    {{ $item->price * $item->item_quantity}}
                   </span>
                 </td>
                 <td class="">
