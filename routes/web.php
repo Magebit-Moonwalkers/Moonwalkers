@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -88,3 +89,12 @@ Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove'
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
 Route::get('product/{id}',[ProductController::class, 'showById'])->name('product.show');
+<<<<<<< HEAD
+=======
+
+Route::get('/checkout', function () {
+    return view('billingAddress');
+});
+
+Route::post('checkout',[CheckoutController::class, 'saveBillingAddress'])->name('continue-checkout');
+
