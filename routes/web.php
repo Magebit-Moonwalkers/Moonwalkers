@@ -89,8 +89,6 @@ Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove'
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 
 Route::get('product/{id}',[ProductController::class, 'showById'])->name('product.show');
-<<<<<<< HEAD
-=======
 
 Route::get('/checkout', function () {
     return view('billingAddress');
