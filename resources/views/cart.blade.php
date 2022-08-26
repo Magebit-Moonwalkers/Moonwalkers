@@ -5,15 +5,17 @@
 @section('content')
 
 <main class="content">
-<div class="content-wrapper">
+<div class="content-wrapper cart-page">
     <div class="">
       <div class="">
         @if ($message = Session::get('success'))
-        <div class="">
+        <div class="message">
           <p class="">{{ $message }}</p>
         </div>
         @endif
-        <h3 class="">Cart List</h3>
+        <div class="cart-title">
+          <h3>Cart List</h3>
+        </div>
         <div class="">
           <table class="" cellspacing="2">
 
@@ -32,30 +34,30 @@
               <?php $cart_id = $item->cart_id;?>
               <tr>
                 <td>
-                  <a href="{{ route('search-product', ['id' => $item->product_id]) }}">
-                    <p class="">{{ $item->name }}</p>
+                  <a class="item-name" href="{{ route('search-product', ['id' => $item->product_id]) }}">
+                    <p>{{ $item->name }}</p>
                   </a>
                 </td>
                 <td class="">
-                  <form action="{{ route('cart.update') }}" method="POST">
+                  <form class="buttons" action="{{ route('cart.update') }}" method="POST">
                     @csrf
                     <input type="hidden" value="{{ $item->product_id }}" name="product_id">
                     <input type="hidden" value="{{ $item->cart_id }}" name="cart_id">
-                    <input type="number" name="item_quantity" value="{{ $item->item_quantity }}" min="1" max="{{ $item->quantity }}" />
-                    <button type="submit">update</button>
+                    <input class="quantity-input" type="number" name="item_quantity" value="{{ $item->item_quantity }}" min="1" max="{{ $item->quantity }}" />
+                    <button class="update-btn" type="submit">Update</button>
                   </form>
                 </td>
                 <td class="">
-                  <span class="">
-                    {{ $item->price * $item->item_quantity }}
+                  <span class="item-price">
+                    {{ $item->price * $item->item_quantity }} €
                   </span>
                 </td>
-                <td class="">
-                  <form action="{{ route('cart.remove') }}" method="POST">
+                <td>
+                  <form class="buttons" action="{{ route('cart.remove') }}" method="POST">
                     @csrf
                     <input type="hidden" value="{{ $item->product_id }}" name="product_id">
                     <input type="hidden" value="{{ $item->cart_id }}" name="cart_id">
-                    <button class="">x</button>
+                    <button class="delete-btn">Remove</button>
                   </form>
 
                 </td>
@@ -66,7 +68,7 @@
           </table>
           <div>
             <?php use App\Http\Controllers\CartController; ?>
-            Total: {{ CartController::getTotal() }} 
+            Total: {{ CartController::getTotal() }} €
           </div>
         </div>
       </div>
