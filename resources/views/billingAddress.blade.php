@@ -20,6 +20,12 @@
 
                         <label for="fname">Full Name</label>
                         <input type="text" id="fname" name="name" placeholder="Enter your full name...">
+                        @if ($errors->has('name'))
+                        <span class="invalid-feedback" role="alert">
+                            {{ $errors->first('name') }}
+                        </span>
+                        @endif
+
                     </div>
                     <div class="email-wrap">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330.001 330.001" style="enable-background:new 0 0 330.001 330.001;" xml:space="preserve">
@@ -32,6 +38,11 @@
 
                         <label for="email">Email</label>
                         <input type="text" id="email" name="email" placeholder="Enter your email...">
+                        @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            {{ $errors->first('email') }}
+                        </span>
+                        @endif
                     </div>
                     <div class="adress-wrap">
                         <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -41,6 +52,11 @@
                         </svg>
                         <label for="adr">Address</label>
                         <input type="text" id="adr" name="billing_address" placeholder="Enter your address...">
+                        @if ($errors->has('billing_address'))
+                        <span class="invalid-feedback" role="alert">
+                            {{ $errors->first('billing_address') }}
+                        </span>
+                        @endif
                     </div>
                     <div class="city-wrap">
                         <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -48,6 +64,11 @@
                         </svg>
                         <label for="city">City</label>
                         <input type="text" id="city" name="billing_city" placeholder="Enter your city...">
+                        @if ($errors->has('billing_city'))
+                        <span class="invalid-feedback" role="alert">
+                            {{ $errors->first('billing_city') }}
+                        </span>
+                        @endif
                     </div>
                     <div class="state-wrap">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
@@ -88,6 +109,11 @@
                         </svg>
                         <label for="zip">Zip</label>
                         <input type="text" id="zip" name="billing_zip" placeholder="Enter your zip...">
+                        @if ($errors->has('billing_zip'))
+                        <span class="invalid-feedback" role="alert">
+                            {{ $errors->first('billing_zip') }}
+                        </span>
+                        @endif
                     </div>
                     <label>
                         <input type="checkbox" checked="checked" name="if_shipping_same" id="if_shipping_same"> Shipping address same as billing

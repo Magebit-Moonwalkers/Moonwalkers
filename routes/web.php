@@ -103,3 +103,12 @@ Route::post('checkout',[CheckoutController::class, 'saveBillingAddress'])->name(
 Route::post('payment',[CheckoutController::class, 'saveShippingAddress'])->name('payment');
 
 Route::post('home',[CheckoutController::class, 'saveOrder'])->name('finish-checkout');
+
+Route::get('/orders', function () {
+    $orders = DB::table('orders')->select('order_id')->where('user_id', auth()->user()->id)->distinct()->get();
+    // $orders = DB::table('orders')->where('user_id', auth()->user()->id)->get();
+    // echo $order_id;
+    $date = DB::table('orders')->select('created_at')->where('user_id', auth()->user()->id)->distinct()->get();
+
+    return view('orders')->with(compact('orders'))->with(compact('date'));
+})->name('orders');
